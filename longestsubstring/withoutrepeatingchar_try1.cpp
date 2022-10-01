@@ -13,7 +13,7 @@ public:
         {
             temp = 1;
             // std::cout<<*first;
-            vector<pair<int,int>> hash_set(256, -1);
+            /*vector<pair<int,int>> hash_set(256, -1);
             furst = *first;
             seconduh = *second;
             hash_set[furst] = 1;
@@ -26,7 +26,7 @@ public:
                 std::cout<<*second;
             }
             ++second;
-            // std::cout<<*second;
+            // std::cout<<*second; */ //Hash thing needs to be implemented better...
             first = second;
             if(len<temp)
             {
