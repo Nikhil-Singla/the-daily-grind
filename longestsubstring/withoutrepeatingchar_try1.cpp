@@ -32,13 +32,19 @@ public:
                     {
                         result = var;
                     }
-                    var = 1;
                     first = temp++;
+                    if(*first==*temp)
+                    {var = 0;}
+                    else
+                    {var = 1;}
                 }
                 hash[ascii] = 1;
                 var++;
             }
-            var = 1;
+            if(*first==*temp)
+            {var = 0;}
+            else
+            {var = 1;}
             first = temp++;
         }
         return result;
