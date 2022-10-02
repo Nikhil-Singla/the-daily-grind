@@ -3,4 +3,5 @@ Return the length of the string
 Date: 30 Sept 2022
 
 Solutions Submitted:
-=> XXXX ms: <About the try>
+=> 19 ms: Longest try honestly. Took over 3 days trying out various complicated things before I finally decided to take a bullet and Google the sliding window algorithm,
+then the solution didn't take over 10 lines. Old attempts were lacking in a thing or two that got harder to figure out. Learnt a lot.
