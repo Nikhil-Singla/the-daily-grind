@@ -1,6 +1,6 @@
 Name: Median of Two Sorted Arrays
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
-Date: 02 10 2022
+Date: 02/10/2022
 
 Solutions Submitted:
-=> XXXX ms: <About the try>
+=> 127 ms: Brute Force Method. Missing insights to refine the answer.
