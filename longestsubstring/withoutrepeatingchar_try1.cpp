@@ -2,7 +2,51 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        int len = 0, size=s.size();
+        vector<int> hash(256, -1);
+        int length = s.length(), result=0, var=0;
+        if(length<2)
+        {
+            return length;
+        }
+        else if(length == 2)
+        {
+            if(s.at(0)==s.at(1))
+            {return(1);}
+            else
+            {return 2;}
+        }
+        auto first=s.begin(), second=s.end();
+        auto temp = first+1;
+        int ascii=0;
+        ascii = int(*first);
+        hash[ascii] = 1;
+        length = 1;
+        while(temp<=second)
+        {
+            while(*temp!=*first && temp<=second)
+            {
+                ascii = int(*temp);
+                if(hash[ascii]==1)
+                {
+                    if(result<var)
+                    {
+                        result = var;
+                    }
+                    var = 1;
+                    first = temp++;
+                }
+                hash[ascii] = 1;
+                var++;
+            }
+            var = 1;
+            first = temp++;
+        }
+        return result;
+    }
+};
+
+//OLD Code for experience
+        /*int len = 0, size=s.size();
         string::iterator first, second, last;
         first = s.begin();
         second = first+1;
@@ -13,7 +57,7 @@ public:
         {
             temp = 1;
             // std::cout<<*first;
-            /*vector<pair<int,int>> hash_set(256, -1);
+            vector<pair<int,int>> hash_set(256, -1);
             furst = *first;
             seconduh = *second;
             hash_set[furst] = 1;
@@ -26,13 +70,11 @@ public:
                 std::cout<<*second;
             }
             ++second;
-            // std::cout<<*second; */ //Hash thing needs to be implemented better...
+            // std::cout<<*second;
             first = second;
             if(len<temp)
             {
                 len = temp;
             }
         }
-        return len;
-    }
-};
+        return len;*/
