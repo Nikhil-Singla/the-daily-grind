@@ -2,55 +2,50 @@ class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) 
     {
-        int first=0, first2=0;
-        int len1=nums1.size(),len2=nums2.size();
-        int flag=1, answer=0;
-        vector<int> result;
-        while(first<len1)
+        auto start1=nums1.begin(),start2=nums2.begin();
+        auto end1=nums1.end(),end2=nums2.end();
+        int len=nums1.size()+nums2.size();
+        vector<int> nums;
+        double answer=3;
+        end1--;
+        end2--;
+        for(int i = 0;((start1<=end1)&&(start2<=end2));i++)
         {
-            if(first2>=len2)
+            if(*start2>*start1)
             {
-                flag = 2;
-                break;
-            }
-            if(nums1[first]>nums2[first2])
-            {
-                result.push_back(nums1[first++]);
+                nums.push_back(*start1);
+                start1++;
             }
             else
             {
-                result.push_back(nums2[first2++]);
+                nums.push_back(*start2);
+                start2++;
             }
         }
-        if(nums1.size()==nums2.size())
+        while(start1<=end1)
         {
-            flag = 3;
+            nums.push_back(*start1);
+            start1++;
         }
-        if(flag == 1)
+        while(start2<=end2)
         {
-            do
-            {
-                result.push_back(nums1[first]);
-            }
-            while(++first<len1);
+            nums.push_back(*start2);
+            start2++;
         }
-        else if(flag == 2)
+        /* for (int i = 0; i < nums.size(); i++) 
         {
-            do
-            {
-                result.push_back(nums2[first2]);
-            }
-            while(++first2<len2);
+            cout << nums[i] << " ";
         }
-        int len3 = len1+len2;
-        len3 /= 2;
-        if(len3%2==0)
+        cout << endl; */
+        // cout<<len;
+        if(len%2==0)
         {
-            answer=(result[len3]+result[len3-1])/2;
+            answer=(double)nums[(len/2)-1]+(double)nums[(len/2)];
+            answer /= 2;
         }
         else
         {
-            answer=result[len3-1];
+            answer=(double)nums[(len/2)];
         }
         return answer;
     }
