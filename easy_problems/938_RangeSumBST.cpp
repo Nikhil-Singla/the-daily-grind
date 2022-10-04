@@ -28,7 +28,7 @@ public:
 
         if(IsBound(root->val,low,high))
         {
-            cout<<root->val<<" ";
+            //cout<<root->val<<" ";
             sum+=root->val;
         }
 
