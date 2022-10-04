@@ -12,7 +12,9 @@ public:
 };
 
 //int size = nums.size() adds 3ms to the runtime
-//Commenting in the code itself also adds to the runtime, hence it has to be added where there's no risk of running it
+//Commenting itself also adds to the runtime, hence it has to be added post submission in github
+//Theres some sort of weird bias for the variables used as using "n" gives a faster runtime than using "a". Except it might also be specific to the compiler and 
+//website traffic that is actively using Leetcode. Not sufficient data.
 
 //UNOPTIMIZED solution
 /*class Solution {
