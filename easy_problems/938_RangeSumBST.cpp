@@ -9,10 +9,14 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-int sum = 0;
 class Solution {
 public:
     //Taken IsBound's concept from Google Search and modified to fit
+    int sum;
+    Solution()
+    {
+        sum = 0;
+    }
     bool IsBound(const int value, const int low, const int high) 
     {
         return (!(value < low) && !(high < value));
