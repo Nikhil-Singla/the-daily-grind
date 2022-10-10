@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isPalindrome(int x) {
         vector<int> num;
-        int count = 0, temp = x;
+        unsigned long int count = 0, temp = x;
         if(x < 0)
         {
             return false;
