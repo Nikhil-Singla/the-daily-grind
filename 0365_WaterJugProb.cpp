@@ -30,7 +30,7 @@ public:
         vis[0]=1; // Visited 0
         while(!q.empty())
         {
-            int node=q.front();
+            int node=q.front(); // Initialising the node with the oldest value in Queue
             q.pop();
             
             if(node==targetCapacity)
