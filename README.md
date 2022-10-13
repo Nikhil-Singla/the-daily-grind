@@ -1,2 +1,2 @@
 # leetcode_commenting
-Learning hard puzzles in Leetcode by commenting the solutions
+Learning medium/hard puzzles in Leetcode by commenting the solutions
