@@ -20,3 +20,10 @@ public:
     }
 };
 
+// ALTERNATE SOLUTION
+
+bool checkString(string s) {
+        return s.find("ba")==string::npos;
+    }
+// If at any point, a comes after b, ba would appear in the string.
+
