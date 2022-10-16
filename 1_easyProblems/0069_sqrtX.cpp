@@ -1,8 +1,8 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        int start = 0, last = x;
-        int mid = 0, square = 0;
+        unsigned long int start = 0, last = x;
+        unsigned long int mid = 0, square = 0;
         if(x==0)
         {return 0;}
         if(x == 1)
