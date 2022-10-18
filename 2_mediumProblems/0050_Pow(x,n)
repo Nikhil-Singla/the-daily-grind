@@ -1,4 +1,17 @@
+
+
+// REDUNDANT SOLUTION
+#include<math.h>
 class Solution {
+public:
+    double myPow(double x, int n) {
+        int ans = pow(x,n);
+        return ans;
+    }
+};
+
+// Solution didn't work for very small numbers.
+/* class Solution {
 public:
     double myPow(double x, int n) {
         double temp = x;
@@ -29,3 +42,4 @@ public:
     }
 };
 
+*/
