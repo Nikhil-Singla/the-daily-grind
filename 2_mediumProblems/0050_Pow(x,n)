@@ -18,13 +18,14 @@ public:
         {
             double num = 1;
             int absolute = abs(n);
-            for(int i = 0; i < absolute; i++)
+            for(int i = 1; i < absolute; i++)
             {
-                cout<< num;
-                num = (double)num/(double)temp;
+                temp *= temp;
             }
+            num = (double)num/(double)temp;
             return num;
         }
         return -1.0;
     }
 };
+
