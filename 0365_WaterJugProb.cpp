@@ -28,22 +28,22 @@ public:
         
         q.push(0); // Pushing the initial water cap in the jug?
         vis[0]=1; // Visited 0
-        while(!q.empty())
+        while(!q.empty()) // While there is something in the queue
         {
             int node=q.front(); // Initialising the node with the oldest value in Queue
-            q.pop();
+            q.pop();            // Empty the last Q value
             
-            if(node==targetCapacity)
+            if(node==targetCapacity) // If we reach the target
             {
                 return true; // WHEN WE FIND THE TARGET CAPACITY ACHIEVED
             }
-            for(int i=0;i<4;i++)
+            for(int i=0;i<4;i++)    // 4 Times loop
             {
-                int newNode=node+steps[i];
+                int newNode=node+steps[i];  // The new water = front value of the queue + either of the 4 steps +-x and +-y
                 if(newNode>=0 && newNode<=z && vis[newNode]==0) //BOUNDARY CHECKS 
                 {
-                    q.push(newNode);
-                    vis[newNode]=1;
+                    q.push(newNode);    // Pushing a different value to the queue, the latest one with the 4 differences
+                    vis[newNode]=1;     // Really clever!!! Not revisiting the same values, hence the important exit condition
                 }
             }
         }
