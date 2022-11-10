@@ -6,18 +6,25 @@ public:
         int result = 0;
         int flag = 0;
         bool negate = false;
+        int insert = 0;
         for(int i = 0; i < len; i++)
         {
-            while(s[i] == " ")
+            while(s[i] == ' ')
             {
                 i++;
             }
-            
-            if(flag == 0)
+            if(s[i] == '-')
             {
-                if(s[i] == "-")
+                negate = true;
+            }
+            else
+            {
+                while(s[i] < 58 && s[i]>47)
                 {
-                    negate = true;
+                    insert = s[i] - 47;
+                    result *= 10;
+                    result += insert;
+                    i++;
                 }
             }
         }
