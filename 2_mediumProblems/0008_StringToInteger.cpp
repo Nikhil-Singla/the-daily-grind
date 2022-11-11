@@ -24,7 +24,10 @@ public:
             negate = true;
             i++;
         }
-
+        if(s[i] == '+')
+        {
+            i++;
+        }
         while(isNum(s[i]))
         {
             result = result*10 + (s[i] - 48);
