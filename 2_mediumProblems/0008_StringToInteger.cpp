@@ -1,6 +1,5 @@
 class Solution {
 public:
-
     bool isNum(char a)
     {
         if(a < 58 && a>47)
@@ -12,12 +11,10 @@ public:
 
     int myAtoi(string s) 
     {
-        int len = s.size();
-        long unsigned result = 0;
-        int flag = 0;
+        long long result = 0;
+        int i = 0;
         bool negate = false;
-        int insert = 0, i = 0;
-        long unsigned low = 0, high = 2147483647, higher = 2147483648;
+
         while(s[i] == ' ')
         {
             i++;
@@ -27,25 +24,30 @@ public:
             negate = true;
             i++;
         }
+
         while(isNum(s[i]))
         {
-            insert = s[i] - 48;
-            result *= 10;
-            result += insert;
+            result = result*10 + (s[i] - 48);
             i++;
+            if(result >= INT_MAX) 
+            {
+                break;
+            }   
         }
-        if(negate)
+
+        if(negate) 
         {
-            result = clamp(result, low, higher);
-            insert = result;
-            insert *= -1;
+            result *= -1;
         }
-        else
+        if(result <= INT_MIN) 
         {
-            result = clamp(result, low, high);
-            insert = result;
+            return INT_MIN;
         }
-        //cout<<negate;
-        return insert;
+        if(result >= INT_MAX) 
+        {
+            return INT_MAX;
+        }
+
+        return result;
     }
 };
