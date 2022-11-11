@@ -43,8 +43,9 @@ public:
         else
         {
             result = clamp(result, low, high);
+            insert = result;
         }
-        cout<<negate;
-        return result;
+        //cout<<negate;
+        return insert;
     }
 };
