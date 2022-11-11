@@ -24,7 +24,7 @@ public:
             negate = true;
             i++;
         }
-        if(s[i] == '+')
+        else if(s[i] == '+')
         {
             i++;
         }
