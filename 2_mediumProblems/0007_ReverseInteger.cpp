@@ -1,29 +1,31 @@
 class Solution {
 public:
+
     int reverse(int x) 
     {
-        unsigned int result = 0;
-        if(x < 0)
+        if(x == INT_MIN) 
         {
-            if (x == INT_MIN)
+            return 0;
+        }
+        
+        if(x < 0) 
+        {
+            return (reverse(-x)*-1);
+        }
+
+        int result = 0;
+        
+        while(x > 0)
+        {
+            int a = x % 10;
+            x = x / 10;
+            if( (INT_MAX - a)/10 < result ) 
             {
                 return 0;
             }
-            x *= -1;
-            while(x != 0)
-            {
-                result = result*10 + x%10;
-                x /= 10;
-                if(result > INT_MAX)
-                {
-
-                }
-            }
-
-        }   
-        else
-        {
-
-        } 
+            result = result * 10 + a;
+        }
+        return result;
     }
+
 };
