@@ -25,17 +25,22 @@ public:
     {
         bool negate = false;
         int result = 0;
+        
         negate = sign(dividend, divisor);
+        
         dividend = abs(dividend);
         divisor = abs(divisor);
-        for(; dividend > divisor; result++)
+
+        for(; dividend >= divisor; result++)
         {
             dividend -= divisor;
         }    
+
         if(negate)
         {
             result *= -1;
         }
+
         return result;
     }
 };
