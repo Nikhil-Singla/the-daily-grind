@@ -23,7 +23,15 @@ public:
 
     int divide(int dividend, int divisor) 
     {
-        bool sign = sign(dividend, divisor);
-        
+        bool negate = false;
+        int result = 0;
+        negate = sign(dividend, divisor);
+        dividend = abs(dividend);
+        divisor = abs(divisor);
+        for(; dividend > divisor; result++)
+        {
+            dividend -= divisor;
+        }    
+        return result;
     }
 };
