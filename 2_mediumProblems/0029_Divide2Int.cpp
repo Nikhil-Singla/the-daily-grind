@@ -32,6 +32,10 @@ public:
         {
             dividend -= divisor;
         }    
+        if(negate)
+        {
+            result *= -1;
+        }
         return result;
     }
 };
