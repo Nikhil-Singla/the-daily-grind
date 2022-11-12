@@ -28,11 +28,26 @@ public:
         
         negate = sign(dividend, divisor);
         
+        if(dividend == INT_MIN)
+        {
+            if(divisor > 0)
+            {
+                dividend += divisor;
+                result++;
+            }
+            else
+            {
+                dividend -= divisor;
+                result++;
+            }
+        }
         dividend = abs(dividend);
         divisor = abs(divisor);
 
-        for(; dividend >= divisor; result++)
+        for(; (dividend >= divisor) && (divisor!= 0); result++)
         {
+            if(result == INT_MAX)
+            {return (negate?INT_MIN:INT_MAX);}
             dividend -= divisor;
         }    
 
