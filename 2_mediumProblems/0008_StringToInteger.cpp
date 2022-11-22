@@ -1,15 +1,15 @@
 class Solution {
 public:
-    bool isNum(char a)
+    bool isNum(char a)          //Function to check if the input char is a number or not
     {
-        if(a < 58 && a>47)
+        if(a < 58 && a>47)      //ASCII code based checker
         {
-            return true;
+            return true;        //Character is number
         }
-        return false;
+        return false;           //Character is not number
     }
 
-    int myAtoi(string s) 
+    int myAtoi(string s)        
     {
         long long result = 0;
         int i = 0;
