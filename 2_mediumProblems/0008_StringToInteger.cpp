@@ -9,11 +9,11 @@ public:
         return false;           //Character is not number
     }
 
-    int myAtoi(string s)        
+    int myAtoi(string s)        //Convert string to int
     {
-        long long result = 0;
-        int i = 0;
-        bool negate = false;
+        long long result = 0;   //Store our result
+        int i = 0;              //Keep track of the current input character from the entire string
+        bool negate = false;    //Keep track if the number is negative or not
 
         while(s[i] == ' ')
         {
