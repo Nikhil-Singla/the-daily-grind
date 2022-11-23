@@ -1,3 +1,4 @@
+//Program to convert given input of string to its Integer equivalent within a defined constraint/set of rules
 class Solution {
 public:
     bool isNum(char a)          //Function to check if the input char is a number or not
