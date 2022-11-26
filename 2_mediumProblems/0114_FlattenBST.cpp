@@ -32,5 +32,15 @@ public:
 
     }
 
+    void traverse(TreeNode* root)
+    {
+        if(root == nullptr)
+        {
+            return;
+        }
+        getOrder.push_back(root->val);
+        traverse(root->left);
+        traverse(root->right);
+    }
 
 };
