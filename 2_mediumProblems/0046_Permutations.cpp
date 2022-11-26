@@ -1,18 +1,18 @@
 class Solution {
 public:
 
-    vector<vector<int>> ans;
+    vector<vector<int>> ans;                // Variable to store answer
 
     vector<vector<int>> permute(vector<int>& nums) 
     {
-        if(nums.size()==1)
+        if(nums.size()==1)                  //If we only have one element
         {
-            ans.push_back(nums);
-            return ans;
+            ans.push_back(nums);            //Just push back the element vector to our answer
+            return ans;                     //and return the answer
         }
 
-        permute(nums, 0, nums.size()-1);
-        return ans;
+        permute(nums, 0, nums.size()-1);    //Call permute function to get the answer from nums array using its first and last indexes to call the function
+        return ans;                         //Permute function modifies answer
 
     }
 
