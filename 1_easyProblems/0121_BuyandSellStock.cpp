@@ -7,9 +7,10 @@ public:
         {
             for(int j = i; j<prices.size(); j++)
             {
-                if(prices[j]-prices[i] > maxProfit)
+                int profit = prices[j]-prices[i];
+                if(profit > maxProfit)
                 {
-                    maxProfit = prices[j]-prices[i];
+                    maxProfit = profit;
                 }
             }
         }
