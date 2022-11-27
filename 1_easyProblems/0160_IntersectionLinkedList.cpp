@@ -54,6 +54,39 @@ public:
     }
 };
 
+//Unique solution by modifying list values
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) 
+    {
+        ListNode* temp = nullptr;
+        temp = headA;
+        ListNode* ans = NULL;
+        while(temp != NULL)
+        {
+            temp->val *= -1;
+            temp = temp->next;
+        }
+        temp = headB;
+        while(temp!=nullptr)
+        {
+            if(temp->val < 0)
+            {
+                ans = temp;
+                break;
+            }
+            temp = temp->next;
+        }
+        temp = headA;
+        while(temp != NULL)
+        {
+            temp->val *= -1;
+            temp = temp->next;
+        }
+        return ans;
+    }
+};
+
 //Using solution to find the difference between the lists.
 class Solution {
 public:
