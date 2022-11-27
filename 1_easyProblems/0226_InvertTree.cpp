@@ -22,10 +22,7 @@ public:
         {
             return;
         }
-        if(root->left != nullptr && root->right != nullptr)
-        {
-            swap(root->left, root->right);
-        }
+        swap(root->left, root->right);
         if(root->left != nullptr)
         {
             invert(root->left);
