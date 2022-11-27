@@ -6,6 +6,8 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+//Using hashmap and O(n) space with O(m + n) time complexity
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) 
