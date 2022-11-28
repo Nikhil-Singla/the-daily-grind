@@ -17,3 +17,12 @@ public:
         delete temp; //Free up the memory space
     }
 };
+
+//Rough solution without freeing up the memory space
+class Solution {
+public:
+    void deleteNode(ListNode* node) 
+    {
+        *node = *node->next;
+    }
+};
