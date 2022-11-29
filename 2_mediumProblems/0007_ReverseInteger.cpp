@@ -1,14 +1,16 @@
+// Program to reverse the given integer and prevent overflow if needed,
+// It works by taking the lastmost digit and adding it to the final result one by one.
 class Solution {
 public:
 
     int reverse(int x) 
     {
-        if(x == INT_MIN)                            // Min length number, auto reverse to zero 
+        if(x == INT_MIN)                            //Min length number, auto reverse to zero 
         {
-            return 0;
+            return 0;                               //Case that cannot be reversed due to INT MIN being 1 greater than highest possible INT MAX
         }
         
-        if(x < 0) 
+        if(x < 0)                                   //Case for negative integers
         {
             return (reverse(-x)*-1);                //If x is negative, call it with a positive and add negative at the end, during return.
         }
