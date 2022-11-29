@@ -1,4 +1,6 @@
 //Program to convert given input of string to its Integer equivalent within a defined constraint/set of rules
+//It works by reading each character and then outputting its value to the result by using ASCII code. 
+//ASCII code for numbers is known and we can just subtract 48 to get true integer value of characters from ASCII. 
 class Solution {
 public:
     bool isNum(char a)          //Function to check if the input char is a number or not
