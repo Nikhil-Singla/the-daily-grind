@@ -15,19 +15,19 @@ public:
         unordered_map<ListNode*, int> hash_map;
         while(headB != NULL)
         {
-            hash_map[headB]++;
-            headB = headB->next;
+            hash_map[headB]++;          // Map out the link addresses of all the items in the head.
+            headB = headB->next;        // Go down the entire linked list for head B
         }
         while(headA != NULL)
         {
-            if(hash_map[headA] == 1)
+            if(hash_map[headA] == 1)    // The first head that overlaps, you return it
             {
                 return headA;
             }
             headA = headA->next;
         }
         
-        return NULL;
+        return NULL;                    // Only occurs if no head overlaps, in which case its NULL
     }
 };
 
