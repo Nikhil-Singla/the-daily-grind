@@ -1,3 +1,4 @@
+//ITERATIVE Solution
 class Solution {
 public:
     int tribonacci(int n) 
@@ -13,3 +14,5 @@ public:
         return ans[n];
     }
 };
+
+// RECURSIVE Solution
