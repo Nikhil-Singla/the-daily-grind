@@ -1,3 +1,7 @@
+// The climbing stairs is essentially the fibonacci sequence
+// one step means you can add 1 to each of the one step ago.
+// two step means you can add 2 to each of the two step ago.
+// So total new steps -> all 1 steps ago + all 2 steps ago
 // Quickest Solution
 class Solution {
 public:
