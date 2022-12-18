@@ -7,15 +7,14 @@ public:
         int i = 0;
         while(i < target.size())
         {   
-            if(stream_counter == target[i])
+            result.push_back("Push");
+            if(stream_counter != target[i])
             {
-                result.push_back("Push");
-                i++;
+                result.push_back("Pop");
             }
             else
             {
-                result.push_back("Push");
-                result.push_back("Pop");
+                i++;
             }
             stream_counter++;
         }   
