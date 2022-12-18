@@ -9,7 +9,7 @@ public:
             if(nums[temp] < 0)
             {
                 result.push_back(temp+1);
-                cout<<temp<<" ";
+                //cout<<temp<<" ";
             } 
             nums[temp] *= -1;
         }     
