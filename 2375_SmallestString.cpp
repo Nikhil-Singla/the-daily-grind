@@ -23,6 +23,7 @@ public:
                 dec--;
             }
         }
+        result += counter;
         return result;
     }
 };
