@@ -3,27 +3,15 @@ public:
     string smallestNumber(const string pattern) 
     {
         string result;
-        char counter = '1';
-        int dec = 0;
-        for(int i = 0; i < pattern.length(); i++)
+        int i = 0;
+        int n = pattern.length() + 49;
+        char front_stream = '1';
+        char back_stream = n;
+        while(front_stream <= back_stream)
         {
-            if(pattern[i] == 'I')
-            {
-                result += counter;
-                counter++;
-            }
-            while(pattern[i] == 'D')
-            {
-                dec++;
-                i++;
-            }
-            while(dec>0)
-            {
-                result += counter+dec;
-                dec--;
-            }
+            if(pattern[i++] == 'I') result += front_stream++;
+            else result += back_stream--;
         }
-        result += counter;
         return result;
     }
 };
