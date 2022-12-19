@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<int> getSumAbsoluteDifferences(vector<int>& nums) 
+    vector<int> getSumAbsoluteDifferences(const vector<int> nums) 
     {
         vector<int> result;
         result.push_back(0);
