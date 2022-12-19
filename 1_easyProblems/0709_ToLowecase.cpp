@@ -5,7 +5,7 @@ public:
     {
         for(int i = 0; i<s.size(); i++)
         {
-            if(s[i] < 97)
+            if(s[i] > 64 && s[i] < 91)
             {
                 s[i] += 32;
             }
