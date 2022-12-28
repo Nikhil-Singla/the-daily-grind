@@ -21,6 +21,7 @@ public:
     }
 };
 
+// IMPORTANT OBSERVATION: BELOW CODE IS SLOWER. INBUILT CONSTRUCTOR WITH SETS IS MUCH FASTER.
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) 
