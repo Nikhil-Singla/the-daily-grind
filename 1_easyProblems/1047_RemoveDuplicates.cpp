@@ -3,7 +3,8 @@ public:
     string removeDuplicates(string s) 
     {
         vector<char> ans;
-        for(auto c:s)
+        for(auto c:s)   //CAN BE OPTIMIZED by just using reference here along with const and defining datatype
+      //for(const char& c:s) 
         {
             if((ans.size() > 0) && (ans.back()==c))
             {
