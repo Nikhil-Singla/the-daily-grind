@@ -3,14 +3,14 @@ public:
     string removeDuplicates(string s) 
     {
         vector<char> ans;
-        for(int i = 0; i < s.length() ; i++)
+        for(auto c:s)
         {
-            ans.push_back(s[i]);
-            while(ans[ans.size()-2] == ans.back() && ans.size()>2)
+            if((ans.size() > 0) && (ans.back()==c))
             {
                 ans.pop_back();
-                ans.pop_back();
             }
+            else
+            ans.push_back(c);
         }
         string result(ans.begin(),ans.end());
         return result;
