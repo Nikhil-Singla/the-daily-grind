@@ -27,6 +27,9 @@ public:
                 temp1.push_back(i->first);
             }
         }
+        set<int> unique1( temp1.begin(), temp1.end() ), unique2( temp2.begin(), temp2.end() );
+        temp2.assign( unique2.begin(), unique2.end() );
+        temp1.assign( unique1.begin(), unique1.end() );
         ans.push_back(temp1);
         ans.push_back(temp2);
         return ans;
