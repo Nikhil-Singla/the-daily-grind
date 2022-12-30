@@ -1,10 +1,5 @@
 class Solution {
 public:
-    int transform(int num)
-    {
-        
-    }
-
     int getLucky(string s, int k) 
     {
         int sum = 0;
@@ -15,11 +10,20 @@ public:
             int num_form = temp - 96; 
             while(num_form != 0)
             {
-                sum *= 10;
-                sum += num_form/10;
+                sum += num_form%10;
                 num_form /= 10;
             }
         }
-
+        while(k--)
+        {
+            int helper = 0;
+            while(sum)
+            {
+                helper += sum%10;
+                sum = sum/10;
+            }
+            sum = helper;
+        }
+        return sum;
     }
 };
