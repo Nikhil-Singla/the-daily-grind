@@ -1,5 +1,30 @@
-
-
+class Solution {
+public:
+    bool isAnagram(string s, string t) 
+    {
+        int count[128] = {0};
+        if(s.length() != t.length())
+        {
+            return false;
+        }    
+        for(const auto&c: s)
+        {
+            count[c]++;
+        }
+        for(const auto&c: t)
+        {
+            count[c]--;
+        }
+        for(const auto&c: count)
+        {
+            if(c != 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 
 ------------------------------------------------------------- Similar Time -------------------------------------------------------------
 class Solution {
