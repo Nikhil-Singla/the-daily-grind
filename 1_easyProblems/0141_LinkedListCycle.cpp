@@ -10,6 +10,24 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) 
     {
+        set<ListNode*> list_node;
+        while(head != NULL)
+        {
+            if(list_node.find(head) != list_node.end())
+            {
+                return true;
+            }
+            list_node.insert(head);
+            head = head->next;
+        }    
+        return false;
+    }
+};
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) 
+    {
         unordered_map<ListNode*, bool> hash;
         while(head != NULL)
         {
