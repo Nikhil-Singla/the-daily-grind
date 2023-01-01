@@ -1,3 +1,29 @@
+// Slightly sophisticated code
+class Solution {
+public:
+    int maxNumberOfBalloons(string text) 
+    {
+        int count[26] = {0};
+        int res = INT_MAX;
+        for(int i = 0; i < text.length(); i++)
+        {
+            count[text[i] - 'a']++;
+        }
+        string a = "ban";
+        string b = "ol";
+        for(auto &c : a)
+        {
+            res = min(res, count[c - 'a']);
+        }
+        for(auto &c : b)
+        {
+            res = min(res, count[c - 'a']/2);
+        }
+        return res;
+    }
+};
+
+// Initial solution
 class Solution {
 public:
     int maxNumberOfBalloons(string text) 
