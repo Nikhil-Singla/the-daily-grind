@@ -1,62 +1,41 @@
 class Solution {
 public:
-    bool strongPasswordCheckerII(string password) 
+    bool strongPasswordCheckerII(string p) 
     {
         string special = "!@#$%^&*()-+";
-        bool check[5] = {false};
-        if(password.length() < 8)
+        bool chk[5] = {false};
+        if(p.length() < 8)
         {return false;}
-
-        for(int i = 0; i < password.length(); i++)
+        for(int i = 0; i < p.length(); i++)
         {
-            if(password[i] >= 'a' && password[i] <= 'z')
-            {
-                check[0] = true;
-                break;
-            }
+            if(p[i] >= 'a' && p[i] <= 'z')
+            {chk[0] = true;break;}
         }
-
-        for(int i = 0; i < password.length(); i++)
+        for(int i = 0; i < p.length(); i++)
         {
-            if(password[i] >= 'A' && password[i] <= 'Z')
-            {
-                check[1] = true;
-                break;
-            }
+            if(p[i] >= 'A' && p[i] <= 'Z')
+            {chk[1] = true;break;}
         }
-
-        for(int i = 0; i < password.length(); i++)
+        for(int i = 0; i < p.length(); i++)
         {
-            if(password[i] >= '0' && password[i] <= '9')
-            {
-                check[2] = true;
-                break;
-            }
+            if(p[i] >= '0' && p[i] <= '9')
+            {chk[2] = true;break;}
         }
-
-        for(int i = 0; i < password.length() && !check[3]; i++)
+        for(int i = 0; i < p.length() && !chk[3]; i++)
         {
             for(auto &c: special)
             {
-                if(password[i] == c)
-                {
-                    check[3] = true;
-                    break;
-                }
+                if(p[i] == c)
+                {chk[3] = true;break;}
             }
         }
-
-        check[4] = true;
-        for(int i=1; i<password.size(); i++)
+        chk[4] = true;
+        for(int i=1; i<p.size(); i++)
         {
-            if(password[i-1]==password[i])
-            {
-                check[4] = false;
-                break;
-            }
+            if(p[i-1]==p[i])
+            {chk[4] = false;break;}
         }
-
-        return(check[0] && check[1] && check[2] && check[3] && check[4]);
+        return(chk[0] && chk[1] && chk[2] && chk[3] && chk[4]);
     }
 };
 
