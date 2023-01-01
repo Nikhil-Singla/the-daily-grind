@@ -1,3 +1,28 @@
+// Quickest version
+class Solution {
+public:
+    int maxNumberOfBalloons(string text) 
+    {
+        int count[26] = {0};
+        int res = INT_MAX;
+        for(auto const c : text)
+        {
+            count[c - 'a']++;
+        }
+        string a = "ban";
+        string b = "ol";
+        for(auto const c : a)
+        {
+            res = min(res, count[c - 'a']);
+        }
+        for(auto const c : b)
+        {
+            res = min(res, count[c - 'a']/2);
+        }
+        return res;
+    }
+};
+
 // Slightly sophisticated code
 class Solution {
 public:
