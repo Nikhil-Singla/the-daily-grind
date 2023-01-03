@@ -18,16 +18,16 @@ public:
             switch(guess(sol))
             {
                 case -1 : 
-                    n = sol;
+                    n = sol-1;
                     break;
                 case 0 :
                     return sol;
                     break;
                 case 1 :
-                    low = sol;
+                    low = sol+1;
                     break;
             }
-            sol = (n+low+1)/2;
+            sol = (n+low)/2;
         }    
         return n;
     }
