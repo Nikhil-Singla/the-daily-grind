@@ -3,7 +3,7 @@ public:
     int missingNumber(vector<int>& nums) 
     {
         uint array_Sum = 0, sum = 0, i = 0;
-        for(auto& c : nums)
+        for(auto const c : nums)
         {
             array_Sum += c;
             sum += i++;
