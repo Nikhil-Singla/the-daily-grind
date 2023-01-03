@@ -27,7 +27,7 @@ public:
                     low = sol;
                     break;
             }
-            sol = (n+low)/2;
+            sol = (n+low+1)/2;
         }    
         return n;
     }
