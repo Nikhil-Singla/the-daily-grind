@@ -1,3 +1,4 @@
+// Uploaded an explanation of this solution on LeetCode.
 class Solution {
 public:
     bool isPowerOfFour(int x) 
