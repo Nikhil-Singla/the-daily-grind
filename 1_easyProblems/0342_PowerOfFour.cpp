@@ -1,5 +1,21 @@
 class Solution {
 public:
+    bool isPowerOfFour(int x) 
+    {
+        if(x < 1)
+        {
+            return false;
+        }
+        if(x == 1)
+        {
+            return true;
+        }
+        return (ceil(log2(x)/2) == floor(log2(x)/2));
+    }
+};
+
+class Solution {
+public:
     bool isPowerOfFour(int n) 
     {
         if(n < 1)
