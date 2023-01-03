@@ -11,8 +11,8 @@ class Solution {
 public:
     int guessNumber(int n) 
     {
-        int sol = n/2;
-        int low = 1;
+        uint sol = n/2;
+        uint low = 1;
         while(low < n)
         {
             switch(guess(sol))
