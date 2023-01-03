@@ -1,3 +1,4 @@
+// Tried assigning sum from the start, was a slower method.
 class Solution {
 public:
     int missingNumber(vector<int>& nums) 
