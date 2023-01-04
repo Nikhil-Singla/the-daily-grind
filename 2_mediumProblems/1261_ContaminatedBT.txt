@@ -17,6 +17,7 @@ public:
     FindElements(TreeNode* root) 
     {
         root->val = 0;
+        hash[0] = true;
         helper(root);    
     }
     
