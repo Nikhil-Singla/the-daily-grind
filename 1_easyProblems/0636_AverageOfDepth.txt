@@ -9,24 +9,45 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+#include <numeric>
 class Solution {
 public:
 
-    unordered_map<uint, vector<double>> ans;
+    unordered_map<uint, vector<int>> map;
+    uint max;
+
+    double getAverage(vector<int> const& v)
+    {
+        if (v.empty()) 
+        {
+            return 0;
+        }
+        return reduce(v.begin(), v.end(), 0.0) / v.size();
+    }
 
     vector<double> averageOfLevels(TreeNode* root) 
     {
-        helper(root, 0);    
-        return ans;
+        max = 0;
+        helper(root, 0);  
+        vector<double> result;
+        for(int i = 0; i <= max; i++)
+        {
+            result.push_back(getAverage(map[i]));
+        }  
+        return result;
     }
 
     void helper(TreeNode* root, uint depth)
     {
+        if(depth > max)
+        {
+            max = depth;
+        }
         if(root == NULL)
         {
             return;
         }
-        ans[depth].push_back(root->val);
+        map[depth].push_back(root->val);
         if(root->left)
         {
             helper(root->left, depth+1);
