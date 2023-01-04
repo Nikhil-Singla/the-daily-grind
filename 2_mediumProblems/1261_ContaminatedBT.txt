@@ -12,12 +12,12 @@
 class FindElements {
 public:
 
-    unordered_map<uint, bool> hash;
+    unordered_set<uint> set;
 
     FindElements(TreeNode* root) 
     {
         root->val = 0;
-        hash[0] = true;
+        set.insert(0);
         helper(root);    
     }
     
@@ -31,20 +31,20 @@ public:
         if(root->left)
         {
             root->left->val = n;
-            hash[n] = true;
+            set.insert(n);
             helper(root->left);
         }
         if(root->right)
         {
             root->right->val = n+1;
-            hash[n+1] = true;
+            set.insert(n+1);
             helper(root->right);
         }
     }
 
     bool find(int target) 
     {
-        return hash[target];
+        return set.count(target);
     }
 };
 
