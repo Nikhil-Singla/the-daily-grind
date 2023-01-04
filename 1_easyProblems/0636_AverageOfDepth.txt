@@ -12,6 +12,38 @@
 #include <numeric>
 class Solution {
 public:
+    vector<double> averageOfLevels(TreeNode* root) 
+    {
+        vector<double> result;
+        queue<TreeNode*> q;
+        q.push(root);
+        while(!q.empty())
+        {
+            uint const n = q.size();
+            long avg = 0;
+            for(uint i = 0; i < n; i++)
+            {
+                TreeNode* temp = q.front();
+                q.pop();
+                avg += (temp->val);
+                if(temp->left)
+                {
+                    q.push(temp->left);
+                }
+                if(temp->right)
+                {
+                    q.push(temp->right);
+                }
+            }
+            result.push_back(avg*1.0/n);
+        }
+        return result;
+    }
+};
+
+// First, Brute force approach
+class Solution {
+public:
 
     unordered_map<uint, vector<int>> map;
     uint max;
