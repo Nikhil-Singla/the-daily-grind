@@ -17,3 +17,34 @@ public:
         return index == s.length();
     }
 };
+
+// FOLLOWUP Solution using Hashing for the initial vector
+class Solution {
+public:
+    bool isSubsequence(string s, string t) 
+    {
+        unordered_map<char, vector<int>> hash;
+        for(uint i = 0; i < t.length(); i++)
+        {
+            hash[t[i]].push_back(i);
+        }
+
+        for(auto const c : s)
+        {
+            int prev = -1;
+            auto const iterator = hash.find(c);
+            if(iterator == hash.end())
+            {
+                return false;
+            }
+            auto const indexVector = iterator->second;
+            uint position = upper_bound(indexVector.begin(), indexVector.end(), prev) - indexVector.begin();
+            if(position == indexVector.size()) 
+            {
+                return false;
+            }
+            prev = indexVector[position];
+        }
+        return true;
+    }
+};
