@@ -22,7 +22,12 @@ public:
         {
             return 0;
         }
-        return reduce(v.begin(), v.end(), 0.0) / v.size();
+        double avg = 0, t = 1;
+        for(double const c : v)
+        {
+            avg += (c - avg)/t++;
+        }
+        return avg;
     }
 
     vector<double> averageOfLevels(TreeNode* root) 
