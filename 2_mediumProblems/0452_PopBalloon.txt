@@ -7,18 +7,6 @@ class Solution
 {
     public:
 
-        void printVec(vector<vector<int>>& points)
-            {
-                for(vector<int> c: points)
-                {
-                    for(int d : c)
-                    {
-                        cout<<d<<" ";
-                    }
-                    cout<<endl;
-                }
-            }
-
         int findMinArrowShots(vector<vector<int>>& points) 
         {
             uint n = points.size();
@@ -40,3 +28,16 @@ class Solution
             return count;
         }
 };
+
+//Redundant portion of code. Only meant for checks
+void printVec(vector<vector<int>>& points)
+    {
+        for(vector<int> c: points)
+        {
+            for(int d : c)
+            {
+                cout<<d<<" ";
+            }
+            cout<<endl;
+        }
+    }
