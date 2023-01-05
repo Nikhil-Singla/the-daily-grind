@@ -27,7 +27,7 @@ class Solution
                 return n;
             }
             sort(points.begin(), points.end(), cmp);
-            uint arrows = points[0][1];
+            int arrows = points[0][1];
             uint count = 1;
             for(uint i = 1; i < n; i++)
             {
