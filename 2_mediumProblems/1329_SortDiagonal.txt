@@ -23,14 +23,17 @@ public:
         while((temp1 < row) && (temp2 < col))
         {
             count[mat[temp1][temp2]]++;
-            temp1++; temp2++;
+            temp1++; 
+            temp2++;
         }
 
         for(int i = 0; i < 101; i++)
         {
             while(count[i]--)
             {
-                mat[i1++][i2++] = i;
+                mat[i1][i2] = i;
+                i1++; 
+                i2++;
             }
         }
     }
