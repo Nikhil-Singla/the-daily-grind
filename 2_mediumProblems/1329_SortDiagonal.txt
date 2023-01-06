@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<vector<int>> diagonalSort(vector<vector<int>>& mat) 
+    {
+        uint col = mat[0].size(), row = mat.size();
+        for(uint i = 0; i < col; i++)
+        {
+            sort(mat, row, col, 0, i);
+        }
+
+        for(uint j = 1; j < row; j++)
+        {
+            sort(mat, row, col, j, 0);
+        }
+
+        return mat;
+    }
+
+    void sort(vector<vector<int>>& mat, uint row, uint col, uint i1, uint i2)
+    {
+        map<int, int> count;
+        int temp1 = i1, temp2 = i2;
+        while((temp1 < row) && (temp2 < col))
+        {
+            count[mat[temp1][temp2]]++;
+            temp1++; temp2++;
+        }
+
+        for(int i = 0; i < 101; i++)
+        {
+            while(count[i]--)
+            {
+                mat[i1++][i2++] = i;
+            }
+        }
+    }
+};
