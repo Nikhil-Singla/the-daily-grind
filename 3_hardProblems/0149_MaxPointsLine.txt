@@ -2,11 +2,15 @@ class Solution {
 public:
     int maxPoints(vector<vector<int>>& points) 
     {
+        if(points.size() < 3)
+        {
+            return points.size();
+        }
         int ans = 0;
         for(uint i = 0; i < points.size(); i++)
         {
             unordered_map<long double, int> count;
-            int dupe = 0, vert = 1;
+            int dupe = 0, vert = 0;
             int local = 1;
             for(int j = i+1; j < points.size(); j++)
             {
@@ -25,15 +29,15 @@ public:
                 }
                 else
                 {
-                    count[deltaX/deltaY]++;
+                    (count[deltaY/deltaX] == 0 ? count[deltaY/deltaX] = 2 : count[deltaY/deltaX]++);
                 }
             }
             for(auto const p : count)
             {
                 local = max(local, p.second + dupe);
             }  
-            ans = max(ans, local + dupe);
+            ans = max(ans, local + dupe + vert);
         }
-        return ans + 1;
+        return ans;
     }
 };
