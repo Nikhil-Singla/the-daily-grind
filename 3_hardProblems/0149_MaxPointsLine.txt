@@ -6,37 +6,24 @@ public:
         {
             return points.size();
         }
-        int ans = 0;
-        for(uint i = 0; i < points.size(); i++)
+        uint ans = 2;
+        for(uint i = 0; i < points.size(); ++i)
         {
-            unordered_map<long double, int> count;
-            int dupe = 0, vert = 0;
-            int local = 1;
-            for(int j = i+1; j < points.size(); j++)
+            for(uint j = i+1; j < points.size(); ++j)
             {
-                long double deltaX = points[j][0] - points[i][0];
-                long double deltaY = points[j][1] - points[i][1];
-                if(deltaX == 0)
+                uint loopResult = 2;
+                for(uint k = 0; k < points.size(); ++k)
                 {
-                    if(deltaY == 0)
+                    if(k == i || k == j)
+                    {}
+                    else if((points[j][1] - points[i][1])*(points[k][0] - points[j][0]) == 
+                    (points[j][0] - points[i][0])*(points[k][1] - points[j][1]))
                     {
-                        dupe++;
-                    }
-                    else
-                    {
-                        vert++;
+                        loopResult++;
                     }
                 }
-                else
-                {
-                    (count[deltaY/deltaX] == 0 ? count[deltaY/deltaX] = 2 : count[deltaY/deltaX]++);
-                }
+                ans = max(ans, loopResult);
             }
-            for(auto const p : count)
-            {
-                local = max(local, p.second + dupe);
-            }  
-            ans = max(ans, local + dupe + vert);
         }
         return ans;
     }
