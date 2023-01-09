@@ -19,6 +19,11 @@ public:
             {
                 return head;
             }
+            uint swap = temp->val;
+            temp->val = temp->next->val;
+            temp->next->val = swap;
+            temp = temp->next->next;
         }
+        return head;
     }
 };
