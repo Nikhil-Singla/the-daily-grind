@@ -5,12 +5,9 @@ public:
         uint nextIndex = 0;
         for(uint i = 0; i < nums.size(); i++)
         {
-            if(nums[i] == val)
-            {}
+            if(nums[i] != val) {nums[nextIndex++] = nums[i];}
             else
-            {
-                nums[nextIndex++] = nums[i];
-            }
+            {}
         }
         return nextIndex;
     }
