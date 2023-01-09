@@ -15,14 +15,25 @@ public:
 
     vector<int> preorderTraversal(TreeNode* root) \
     {
+        res.clear();
         helper(root);
+        return res;
     }
 
     void helper(TreeNode* root)
     {
+        if(!root)
+        {
+            return;
+        }
+        res.push_back(root->val);
         if(root->left)
         {
             helper(root->left);
         }    
+        if(root->right)
+        {
+            helper(root->right);
+        }
     }
 };
