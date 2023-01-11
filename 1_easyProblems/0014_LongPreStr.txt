@@ -9,8 +9,13 @@ public:
         {
             if(strs[n-1][i] == strs[0][i])
             {
-                
+                ans += strs[n-1][i];
+            }
+            else
+            {
+                break;
             }
         }    
+        return ans;
     }
 };
