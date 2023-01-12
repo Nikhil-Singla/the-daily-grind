@@ -1,3 +1,23 @@
+//Faster solution using mapping to a fixed length array
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) 
+    {
+        uint mapS[256] = {0}, mapT[256] = {0};
+        for(uint i = 0; i < s.length(); i++)
+        {
+            if(mapS[s[i]] != mapT[t[i]])
+            {
+                return false;
+            }
+            mapS[s[i]] = i+1;
+            mapT[t[i]] = i+1;
+        }
+        return true;
+    }
+};
+
+
 class Solution {
 public:
     bool isIsomorphic(string s, string t) 
