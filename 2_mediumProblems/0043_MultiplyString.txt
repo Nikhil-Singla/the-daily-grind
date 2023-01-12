@@ -1,0 +1,27 @@
+class Solution {
+public:
+    string multiply(string num1, string num2) 
+    {
+        int numero1 = 0, numero2 = 0;
+        for(auto c : num1)
+        {
+            numero1 *= 10;
+            numero1 += c-'0';
+        }
+        for(auto c : num2)
+        {
+            numero2 *= 10;
+            numero2 += c-'0';
+        }    
+        int numero3 = numero1*numero2;
+        string ans;
+        while(numero3)
+        {
+            int temp = numero3%10;
+            numero3 /= 10;
+            ans += (temp + 48);
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
