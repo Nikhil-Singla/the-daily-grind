@@ -4,7 +4,7 @@ public:
     {
         int start = 0, end = nums.size()-1;
         vector<int> ans;
-        while(start < end)
+        while(start <= end)
         {
             int mid = start + (end - start)/2;
             if(nums[mid] < target)
@@ -22,10 +22,11 @@ public:
                     mid--;
                 }
                 ans.push_back(mid);
+                //cout<<mid;
                 break;
             }
         }
-        while(start < end)
+        while(start <= end)
         {
             int mid = start + (end - start)/2;
             if(nums[mid] < target)
@@ -44,6 +45,7 @@ public:
                     mid++;
                 }
                 ans.push_back(mid);
+                //cout<<mid;
                 break;
             }
         }
