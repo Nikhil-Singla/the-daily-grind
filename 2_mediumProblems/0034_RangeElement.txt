@@ -47,6 +47,8 @@ public:
                 break;
             }
         }
-
+        if(ans.empty())
+        {return {-1, -1};}
+        return ans;
     }
 };
