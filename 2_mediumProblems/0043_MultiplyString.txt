@@ -1,27 +1,24 @@
 class Solution {
 public:
-    string multiply(string num1, string num2) 
-    {
-        int numero1 = 0, numero2 = 0;
-        for(auto c : num1)
+    string multiply(string num1, string num2) {
+        int m = num1.size(), n = num2.size();
+        string ans(m + n, '0');
+        for (int i = m - 1; i >= 0; i--) 
         {
-            numero1 *= 10;
-            numero1 += c-'0';
+            for (int j = n - 1; j >= 0; j--) 
+            {
+                int sum = (num1[i] - '0') * (num2[j] - '0') + (ans[i + j + 1] - '0');
+                ans[i + j + 1] = sum % 10 + '0';
+                ans[i + j] += sum / 10;
+            }
         }
-        for(auto c : num2)
+        for (int i = 0; i < m + n; i++) 
         {
-            numero2 *= 10;
-            numero2 += c-'0';
-        }    
-        int numero3 = numero1*numero2;
-        string ans;
-        while(numero3)
-        {
-            int temp = numero3%10;
-            numero3 /= 10;
-            ans += (temp + 48);
+            if (ans[i] != '0') 
+            {
+                return ans.substr(i);
+            }
         }
-        reverse(ans.begin(), ans.end());
-        return ans;
+        return "0";
     }
 };
