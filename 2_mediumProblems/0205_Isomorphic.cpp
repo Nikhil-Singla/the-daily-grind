@@ -3,8 +3,8 @@ class Solution {
 public:
     bool isIsomorphic(string s, string t) 
     {
-        uint mapS[256] = {0}, mapT[256] = {0};
-        for(uint i = 0; i < s.length(); i++)
+        int_fast16_t mapS[256] = {0}, mapT[256] = {0};
+        for(int_fast16_t i = 0; i < s.length(); i++)
         {
             if(mapS[s[i]] != mapT[t[i]])
             {
