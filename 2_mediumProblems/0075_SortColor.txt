@@ -3,19 +3,22 @@ public:
     void sortColors(vector<int>& nums) 
     {
         uint low = 0, high = nums.size()-1, itr = 0;
-        while(low < high && itr <= high)
+        while(itr <= high)
         {
             switch(nums[itr])
             {
                 case 0: 
-                    swap(nums[low++], nums[itr]); 
+                    swap(nums[low], nums[itr]);
+                    low++; itr++; 
                     break;
                 case 2: 
-                    swap(nums[high--], nums[itr]); 
+                    swap(nums[high], nums[itr]);
+                    high--; 
                     break;
-                default: break;
+                case 1: 
+                    itr++; 
+                    break;
             }
-            cout<<itr++;
         }    
     }
 };
