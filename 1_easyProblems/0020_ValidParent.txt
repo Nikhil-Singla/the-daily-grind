@@ -2,20 +2,19 @@ class Solution {
 public:
     bool isValid(string s) 
     {
-        unordered_map<char, int> map;
-        int count[3] = {0};
+        stack<char> check;
         for(int i = 0; i < s.length(); i++)
         {
             switch(s[i])
             {
-                case '{': count[0]++ ; break;
-                case '[': count[1]++ ; break;
-                case '(': count[2]++ ; break;
-                case '}': if(--count[0] < 0) {return false;} else {break;}
-                case ']': if(--count[1] < 0) {return false;} else {break;}
-                case ')': if(--count[2] < 0) {return false;} else {break;}
+                case '{': 
+                case '[':
+                case '(': check.push(s[i]) ; break;
+                case '}': if(check.top() != '{') {return false;} else {check.pop(); break;}
+                case ']': if(check.top() != '[') {return false;} else {check.pop(); break;}
+                case ')': if(check.top() != '(') {return false;} else {check.pop(); break;}
             }
-        }    
-        return (!count[0] && !count[1] && !count[2]);
+        }
+        return true;
     }
 };
