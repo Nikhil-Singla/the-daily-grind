@@ -12,7 +12,7 @@
 class Solution {
 public:
 
-    TreeNode *first = nullptr, *second = nullptr, *prev = nullptr;
+    TreeNode *prev = nullptr;
 
     bool isValidBST(TreeNode* root) 
     {
@@ -44,6 +44,7 @@ public:
         return true;
     }
 };
+
 
 //INCORRECT SOLUTION: CODE ONLY WORKS FOR VALIDITY UPTO 1 LEVEL DEEP PER NODE.
 class Solution {
