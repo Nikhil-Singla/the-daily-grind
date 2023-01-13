@@ -6,7 +6,7 @@ public:
         string phrase;
         for(auto c : s)
         {
-            if(isalpha(tolower(c)))
+            if(isalnum(tolower(c)))
             {
                 phrase += tolower(c);
             }
