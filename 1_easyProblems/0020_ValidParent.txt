@@ -15,6 +15,6 @@ public:
                 case ')': if(check.top() != '(') {return false;} else {check.pop(); break;}
             }
         }
-        return true;
+        return check.empty();
     }
 };
