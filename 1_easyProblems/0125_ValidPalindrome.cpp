@@ -29,3 +29,21 @@ public:
         return true;
     }
 };
+
+//CODE USING PURELY INBUILT FUNCTIONS
+class Solution {
+public:
+
+    bool isPalindrome(string s) 
+    {
+        transform(s.begin(),s.end(),s.begin(), ::tolower);
+        s.erase(remove_if(s.begin(),s.end(),[](char c){
+            if((c >= 97 && c <= 122) || (c >= 48 && c <= 57))
+                return false;
+            return true;
+        }), s.end());
+        string t = s;
+        reverse(t.begin(),t.end());
+        return (t==s ? true : false);
+    }
+};
