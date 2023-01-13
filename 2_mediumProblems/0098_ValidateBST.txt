@@ -11,6 +11,43 @@
  */
 class Solution {
 public:
+
+    TreeNode *first = nullptr, *second = nullptr, *prev = nullptr;
+
+    bool isValidBST(TreeNode* root) 
+    {
+        return helper(root);    
+    }
+
+    bool helper(TreeNode* root)
+    {
+        if(root->left)
+        {
+            if(!helper(root->left))
+            {
+                return false;
+            }
+        }
+        if(prev && root->val < prev->val)
+        {
+            return false;
+        }
+        prev = root;
+        if(root->right)
+        {
+            
+            if(!helper(root->right))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+//INCORRECT SOLUTION: CODE ONLY WORKS FOR VALIDITY UPTO 1 LEVEL DEEP PER NODE.
+class Solution {
+public:
     bool isValidBST(TreeNode* root) 
     {
         return helper(root);    
