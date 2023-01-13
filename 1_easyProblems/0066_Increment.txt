@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) 
+    {
+        int carry = 0;
+        int itr = digits.size()-1;
+        vector<int> copy;
+        if(digits[itr] != 9)
+        {
+            digits[itr]++;
+            return digits;
+        }  
+        else
+        {
+            copy.push_back(0);
+            for(int c : digits)
+            {
+                copy.push_back(c);
+            }
+            itr++;
+            copy[itr--] = 0;
+            carry = 1;
+        }  
+        while(carry)
+        {
+            if(copy[itr] != 9)
+            {
+                copy[itr]++;
+                return copy;
+            }  
+            else
+            {
+                copy[itr] = 0;
+                carry = 1;
+                itr--;
+            } 
+        }
+        return copy;
+    }
+};
