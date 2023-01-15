@@ -13,25 +13,25 @@ class Solution {
 public:
 
     vector<string> ans;
-    std::string path;
 
     vector<string> binaryTreePaths(TreeNode* root) 
     {
-        helper(root);
+        string path;
+        helper(root, path);
         return ans;
     }
 
-    void helper(TreeNode* root)
+    void helper(TreeNode* root, string path)
     {
         if(!root)
         {return;}
 
-        path.push_back(root->val);
+        path += to_string(root->val);
         if(root->left)
         {
             path.push_back('-');
             path.push_back('>');
-            helper(root->left);
+            helper(root->left, path);
             path.pop_back();
             path.pop_back();
         }
@@ -40,7 +40,7 @@ public:
         {
             path.push_back('-');
             path.push_back('>');           
-            helper(root->right);
+            helper(root->right, path);
             path.pop_back();
             path.pop_back();
         }
