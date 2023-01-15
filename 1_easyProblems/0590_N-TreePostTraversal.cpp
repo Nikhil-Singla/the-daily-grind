@@ -21,21 +21,17 @@ public:
 class Solution {
 public:
 
-    vector<int> postorder(Node* root) 
+    vector<int> postorder(Node* r) 
     { 
-        vector<int> ans;
-        helper(root, ans);    
-        return ans;
+        vector<int> a;
+        helper(r, a);    
+        return a;
     }
 
-    void helper(Node* root, vector<int> &ans)
+    void helper(Node* r, vector<int> &a)
     {
-        if(!root)
-        {return;}
-        for(auto c : root->children)
-        {
-            helper(c, ans);
-        }
-        ans.push_back(root->val);
+        if(!r) return;
+        for(Node* const c : r->children) {helper(c, a);}
+        a.push_back(r->val);
     }
 };
