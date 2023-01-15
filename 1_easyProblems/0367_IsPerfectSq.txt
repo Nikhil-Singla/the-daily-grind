@@ -6,9 +6,9 @@ public:
         {return true;}
 
         unsigned long int start = 0;
-        unsigned long int end = num/2;
-        
-        while(start < end)
+        unsigned long int end = num;
+
+        while(start <= end)
         {
             double mid = double(start + end)/2.0;
             double square = mid*mid;
