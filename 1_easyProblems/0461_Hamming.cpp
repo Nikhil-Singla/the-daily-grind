@@ -1,16 +1,14 @@
 class Solution {
 public:
-    int maxPower(string s) 
+    int hammingDistance(int x, int y) 
     {
-        unsigned short c = 1, a = 1;
-        for(unsigned short i = 1; i < s.length(); i++)
+        int b = x ^ y;
+        int c = 0;
+        while(b)
         {
-            if(s[i] == s[i-1])
-            {
-                c++;
-                if(c > a) {a = c;}
-            } else c = 1;
-        }    
-        return a;
+            c += b & 1;
+            b >>= 1;
+        }
+        return c;
     }
 };
