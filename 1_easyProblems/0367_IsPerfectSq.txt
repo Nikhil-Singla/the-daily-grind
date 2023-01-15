@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isPerfectSquare(int num) 
+    {
+        if(num == 1)
+        {return true;}
+
+        unsigned long int start = 0;
+        unsigned long int end = num/2;
+        
+        while(start < end)
+        {
+            double mid = double(start + end)/2.0;
+            double square = mid*mid;
+            if(square == num)
+            {
+                return true;
+            }
+
+            if(square < num)
+            {
+                start = mid+1;
+            }
+            else
+            {
+                end = mid-1;
+            }
+        }
+        return false;
+    }
+};
