@@ -10,8 +10,8 @@ public:
 
         while(start <= end)
         {
-            int mid = (start + end)/2;
-            int square = mid*mid;
+            unsigned long int mid = (start + end)/2;
+            unsigned long int square = mid*mid;
             if(square == num)
             {
                 return true;
