@@ -1,3 +1,4 @@
+// Compacted version of the code
 class Solution {
 public:
 
@@ -21,6 +22,7 @@ public:
     }
 };
 
+// Initial, unrefined version of the code
 class Solution {
 public:
 
