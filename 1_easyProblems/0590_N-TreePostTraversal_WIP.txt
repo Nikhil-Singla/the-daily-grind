@@ -20,9 +20,22 @@ public:
 
 class Solution {
 public:
-    vector<int> postorder(Node* root) {
-        cout<<root->val;
-        cout<<root->children[1]->val;
-        return{1};
+
+    vector<int> postorder(Node* root) 
+    { 
+        vector<int> ans;
+        helper(root, ans);    
+        return ans;
+    }
+
+    void helper(Node* root, vector<int> &ans)
+    {
+        if(!root)
+        {return;}
+        for(auto c : root->children)
+        {
+            helper(c, ans);
+        }
+        ans.push_back(root->val);
     }
 };
