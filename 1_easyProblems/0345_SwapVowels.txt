@@ -19,8 +19,7 @@ public:
                 {
                     End--;
                 }
-
-                swap( s[Start], s[End--] );
+                if(iV(s[End]) && Start != End) { swap( s[Start], s[End--] ); }
                 cout<<"Swapping: "<<s[Start]<<" and "<<s[End]<<"\n";
             }
             Start++;
