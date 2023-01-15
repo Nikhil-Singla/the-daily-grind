@@ -10,8 +10,8 @@ public:
 
         while(start <= end)
         {
-            double mid = double(start + end)/2.0;
-            double square = mid*mid;
+            int mid = (start + end)/2;
+            int square = mid*mid;
             if(square == num)
             {
                 return true;
