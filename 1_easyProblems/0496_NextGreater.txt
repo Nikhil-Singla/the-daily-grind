@@ -6,7 +6,7 @@ public:
         stack<int> s;
         for(int const n : nums2)
         {
-            while(s.size() && s.top() > n)
+            while(s.size() && s.top() < n)
             {
                 map[s.top()] = n; 
                 s.pop();
@@ -17,7 +17,7 @@ public:
         for(int i = 0; i < nums1.size(); i++)
         {
             auto const itr = map.find(nums1[i]);
-            if (itr != m.end()) 
+            if (itr != map.end()) 
             {
                 ans[i] = itr->second;
             }
