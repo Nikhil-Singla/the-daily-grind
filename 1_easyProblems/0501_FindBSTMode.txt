@@ -25,11 +25,12 @@ public:
         }
         for(auto x : map)
         {
-            if(x.second == max)
+            if(x.second == high)
             {
                 ans.push_back(x.first);
             }
         }
+        return ans;
     }
 
     void helper(TreeNode* root)
