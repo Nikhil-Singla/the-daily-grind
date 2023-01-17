@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) 
+    {
+        int idx = nums.size()-1;;
+        sort(nums.begin(), nums.end());
+        if(nums.size() < 3)
+        {
+            return nums.back();
+        }
+        for(uint i = 0; i < 2; i++)
+        {
+            if(idx <= 0) {break;}
+            while(nums[idx] == nums[idx-1])
+            {idx--;}
+            idx--;
+        }    
+        return (idx < 0 ? nums[nums.size()-1] : nums[idx]);
+    }
+};
