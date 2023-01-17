@@ -16,6 +16,7 @@ public:
 
     int getMinimumDifference(TreeNode* root) 
     {
+        low = INT_MAX;
         helper(root);
         return low;
     }
@@ -24,11 +25,11 @@ public:
     {
         if(!root) {return;}
         if(root->left) {
-            low = min(min, root->val - root->left->val);
+            low = min(low, root->val - root->left->val);
             helper(root->left);
         }
         if(root->right) {
-            low = min(min, root->right->val - root->val);
+            low = min(low, root->right->val - root->val);
             helper(root->right);
         }
     }
