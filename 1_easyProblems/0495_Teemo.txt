@@ -3,7 +3,7 @@ public:
     int findPoisonedDuration(vector<int>& tS, int duration) 
     {
         int seconds = 0;
-        for(int i = 0; i < tS[i].size() - 1; i++)
+        for(int i = 0; i < tS.size() - 1; i++)
         {
             int time = tS[i] + duration;
             if(time > tS[i+1])
@@ -15,5 +15,7 @@ public:
                 seconds += duration;
             }
         }    
+        seconds += duration;
+        return seconds;
     }
 };
