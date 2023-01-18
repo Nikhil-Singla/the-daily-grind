@@ -4,6 +4,6 @@ public:
     {
         unsigned mask = ~0;
         while(num & mask) mask = mask << 1;
-        return (~mask & ~num);
+        return (mask ^ ~num);
     }
 };
