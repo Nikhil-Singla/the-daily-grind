@@ -7,7 +7,8 @@ public:
         {
             comp += !(num & 1);
             num >>=1;
-        }    
+        }
+        comp <<=1;    
         return comp;
     }
 };
