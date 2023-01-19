@@ -4,7 +4,6 @@ public:
     {
         vector<vector<int>> v;
         v.push_back({1});
-        if(numRows < 2) {return v;}
         for(int i = 1; i < numRows; i++)
         {
             vector<int> row(i+1);
