@@ -19,12 +19,8 @@ public:
                 j--;
             }
             int sum = a + b + carry;
-            carry = 0;
-            if(sum > 9)
-            {
-                carry = sum/10;
-                sum = sum%10;
-            }
+            carry = sum/10;
+            sum = sum%10;
             ans = to_string(sum) + ans;
         }
         return ans;
