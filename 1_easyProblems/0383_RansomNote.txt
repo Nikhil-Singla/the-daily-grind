@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) 
+    {
+        for(auto c : ransomNote)
+        {
+            if(magazine.find(c) == string::npos)
+            {
+                cout<<"1";
+                return false;
+            } 
+            else
+            {
+                cout<<"2";
+                magazine.erase(magazine.find(c), 1);
+            }
+        }    
+        return true;
+    }
+};
