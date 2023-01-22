@@ -2,20 +2,22 @@ class Solution {
 public:
     bool checkRecord(string s) 
     {
-        bool alreadyAbsent = false;
-        int lateCount = 0;
+        uint alreadyAbsent = 0;
+        uint lateCount = 0;
         for(auto c : s)
         {   
             if(c == 'A')
             {
+                lateCount = 0;
                 if(alreadyAbsent) {return false;}
-                else {alreadyAbsent = true;}
+                else {alreadyAbsent++;}
             }
-
-            if(c == 'L') {lateCount++;}
+            else if(c == 'L') 
+            {
+                lateCount++;
+                if(lateCount == 3) {return false;}
+            }
             else {lateCount = 0;}
-
-            if(lateCount == 3) {return false;}
         }
         return true;
     }
