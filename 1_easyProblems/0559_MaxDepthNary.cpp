@@ -1,22 +1,18 @@
-/*
-// Definition for a Node.
-class Node {
+class Solution {
 public:
-    int val;
-    vector<Node*> children;
 
-    Node() {}
-
-    Node(int _val) {
-        val = _val;
+    int maxDepth(Node* root) 
+    {
+        if(!root) {return 0;}
+        int maxD = 1;
+        for(auto const c : root->children)
+        {
+            maxD = max(maxD, 1 + maxDepth(c));
+        }
+        return maxD;
     }
 
-    Node(int _val, vector<Node*> _children) {
-        val = _val;
-        children = _children;
-    }
 };
-*/
 
 class Solution {
 public:
