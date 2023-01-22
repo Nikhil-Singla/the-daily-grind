@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool checkRecord(string s) 
+    {
+        bool alreadyAbsent = false;
+        int lateCount = 0;
+        for(auto c : s)
+        {   
+            if(c == 'A')
+            {
+                if(alreadyAbsent) {return false;}
+                else {alreadyAbsent = true;}
+            }
+
+            if(c == 'L') {lateCount++;}
+            else {lateCount = 0;}
+
+            if(lateCount == 3) {return false;}
+        }
+        return true;
+    }
+};
