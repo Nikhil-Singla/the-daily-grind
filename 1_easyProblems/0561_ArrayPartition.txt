@@ -4,11 +4,7 @@ public:
     {
         sort(nums.begin(), nums.end());
         int sum = 0; 
-        uint counter = 0;
-        for(uint i = 0; i < (nums.size()/2); i++, counter++)
-        {
-            sum += min(nums[counter], nums[++counter]);
-        }    
+        for(uint i = 0; i < nums.size(); i += 2) {sum += nums[i];}    
         return sum;
     }
 };
