@@ -10,7 +10,7 @@ public:
             vector<int> individualRow;
             for(int j = 0; j < numOfCols; j++)
             {
-                individualRow.push_back(mat[element/mat.size()][element%mat.size()]);
+                individualRow.push_back(mat[element/mat[0].size()][element%mat[0].size()]);
                 element++;
             }
             ans.push_back(individualRow);
