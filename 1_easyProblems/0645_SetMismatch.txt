@@ -3,6 +3,7 @@ public:
     vector<int> findErrorNums(vector<int>& nums) 
     {
         vector<int> ans(2);
+        bool flag = true;
         sort(nums.begin(), nums.end());
         for(int i = 0; i < nums.size(); i++)
         {
@@ -10,9 +11,10 @@ public:
             {
                 ans[0] = nums[i];
             }
-            if(nums[i] != i+1)
+            if(flag && nums[i] != i+1)
             {
                 ans[1] = i+1;
+                flag = false;
             }
         }    
         return ans;
