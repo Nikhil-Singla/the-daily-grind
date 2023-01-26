@@ -21,7 +21,6 @@ public:
             {}
             else
             {
-                cout<<list2[i];
                 if( min == i + map[list2[i]] )
                 {
                     output.push_back(list2[i]);
