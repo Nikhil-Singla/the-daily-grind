@@ -3,20 +3,20 @@ public:
     vector<int> findErrorNums(vector<int>& nums) 
     {
         vector<int> ans(2);
-        bool flag = true;
-        sort(nums.begin(), nums.end());
-        for(int i = 0; i < nums.size(); i++)
+        int n = nums.size();
+        int sum = (n*(n+1))/2;
+        int numSum = 0;
+        set<int> map;
+        for(auto c : nums)
         {
-            if(i < nums.size()-1 && nums[i] == nums[i+1])
+            if(map.find(c) != map.end())
             {
-                ans[0] = nums[i];
+                ans[0] = c;
             }
-            if(flag && nums[i] != i+1)
-            {
-                ans[1] = i+1;
-                flag = false;
-            }
-        }    
+            numSum += c;
+            map.insert(c);
+        }
+        ans[1] = sum - numSum + ans[0];
         return ans;
     }
 };
