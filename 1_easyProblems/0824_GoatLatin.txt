@@ -1,0 +1,11 @@
+class Solution {
+public:
+    string toGoatLatin(string sentence) 
+    {
+        for(auto c : sentence)
+        {
+            cout<<c<<" | ";
+        }    
+        return "a";
+    }
+};
