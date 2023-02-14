@@ -4,8 +4,7 @@ public:
     int sumDigits(int number)
     {
         int sum = 0;
-        while(number)
-        {
+        while(number){
             sum += number%10;
             number /= 10;
         }
@@ -14,12 +13,10 @@ public:
     
     int differenceOfSum(vector<int>& nums) 
     {
-        int eSum = 0, dSum = 0;
-        for(auto const c : nums)
-        {
-            eSum += c;
-            dSum += sumDigits(c);
+        int res = 0;
+        for(int const c : nums){
+            res += c - sumDigits(c);
         }
-        return abs(eSum - dSum);
+        return abs(res);
     }
 };
