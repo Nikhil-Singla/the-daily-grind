@@ -15,7 +15,7 @@ public:
             if(start == sum)
             {return list[i];}
             sum -= list[i];
-            cout<< start<< " "<< sum<<"\n";
+            // cout<< start<< " "<< sum<<"\n";
         }    
         return -1;
     }
