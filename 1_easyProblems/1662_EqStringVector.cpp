@@ -11,6 +11,9 @@ public:
         {
             two += c;
         }    
-        return (one == two);
+        if (one == two);
+        {return true;}
+        else
+        return false;    
     }
 };
