@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool equalFrequency(string word) 
+    {
+        int alphabet[26] = {0};
+        for(auto c : word)
+        {
+            alphabet[c-'a'] += 1;
+        }    
+        
+        int runningFrequency = 0;
+        bool alreadySub = false;
+
+        for(auto c : alphabet)
+        {
+            if(c == 0) {continue;}
+            if(runningFrequency == 0)
+            {
+                runningFrequency = c;
+            }
+            if(runningFrequency != c && abs(runningFrequency - c) < 2)
+            {
+                if(alreadySub) {return false;}
+                alreadySub = true;
+            }
+            else if(abs(runningFrequency - c) > 2)
+            {
+                return false;
+            }
+        }
+        return (true && alreadySub);
+    }
+};
