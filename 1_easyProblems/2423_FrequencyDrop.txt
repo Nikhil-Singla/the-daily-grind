@@ -1,33 +1,26 @@
 class Solution {
 public:
-    bool equalFrequency(string word) 
+    bool isEqual(string str, int index)
     {
-        int alphabet[26] = {0};
-        for(auto c : word)
-        {
-            alphabet[c-'a'] += 1;
-        }    
+        str.erase(index, 1);  //erasing i'th element 
+        int alpha[26] = {0}; 
         
-        int runningFrequency = 0;
-        bool alreadySub = false;
-
-        for(auto c : alphabet)
+        for (auto c : str)  
         {
-            if(c == 0) {continue;}
-            if(runningFrequency == 0)
-            {
-                runningFrequency = c;
-            }
-            if(runningFrequency != c && abs(runningFrequency - c) < 2)
-            {
-                if(alreadySub) {return false;}
-                alreadySub = true;
-            }
-            else if(abs(runningFrequency - c) > 2)
-            {
-                return false;
-            }
+            alpha[c-'a']++;
+        }        
+        int count = 0;
+        for (int i = 0; i < 26; i++)
+        {
+            if(alpha[i] == 0) {continue;}
+            if(!count) {count = alpha[i];}
+            if(alpha[i] != count) {return false;}
         }
-        return (true && alreadySub);
+        return true;
+    }
+    bool equalFrequency(string word) {
+        for (int i = 0; i < word.size(); i++)
+        {if (isEqual(word, i)) return true;	}	
+        return false;
     }
 };
