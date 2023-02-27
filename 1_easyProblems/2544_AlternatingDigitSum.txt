@@ -4,11 +4,17 @@ public:
     {
         int sum = 0;
         int alt = 1;
+        vector<int> digits;
         while(n)
         {
-            sum += (n % 10)*(alt);
-            alt *= -1;
+            digits.push_back(n%10);
             n /= 10;
+        }
+        std:reverse(digits.begin(), digits.end());
+        for(auto c : digits)
+        {
+            sum += (c)*(alt);
+            alt *= -1;
         }    
         return sum;
     }
