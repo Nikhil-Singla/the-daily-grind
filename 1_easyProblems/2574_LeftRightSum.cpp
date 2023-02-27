@@ -2,15 +2,19 @@ class Solution {
 public:
     vector<int> leftRigthDifference(vector<int>& nums) 
     {
-        if(nums.size() == 1)
-        {
-            return {0};
-        }
-        if(nums.size() == 2)
-        {
-            std::reverse(nums.begin(),nums.end());
-            return nums; 
-        }
+// Removed redundant testcase
+// Base Case
+//        if(nums.size() == 1)
+//        {
+//            return {0};
+//        }
+//        if(nums.size() == 2)
+//        {
+//            std::reverse(nums.begin(),nums.end());
+//           return nums; 
+//        }
+
+        // ACTUAL CODE
         int leftSum = 0, rightSum = 0;
         vector<int> ans;
         int n = nums.size();
