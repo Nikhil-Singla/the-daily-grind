@@ -18,9 +18,9 @@ public:
         }
         for(auto c : location)
         {
-            int reverse = abs(n - startIndex + c);
-            int forward = abs(c - n);
-            //cout<<"at:"<<c<<" is -"<<reverse<<" : "<<forward<<"\n";
+            int reverse = abs(n - abs(startIndex - c));
+            int forward = abs(startIndex - c);
+            cout<<"at:"<<c<<" is - "<<reverse<<" : "<<forward<<"\n";
             result = min(result, forward);
             result = min(result, reverse);
         }
