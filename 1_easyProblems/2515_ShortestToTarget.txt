@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int closetTarget(vector<string>& words, string target, int startIndex) 
+    {
+        vector<int> location;
+        int result, n = words.size();
+
+        for(int i = 0; i < n; i++)
+        {
+            if(words[i] == target)
+            {
+                location.push_back(i);
+            }
+        }    
+        if(location.empty())
+        {
+            return -1;
+        }
+        for(auto c : location)
+        {
+            int reverse = n - c + startIndex;
+            int forward = c - startIndex + 2;
+            result = min(result, forward);
+            result = min(result, reverse);
+        }
+        return result;
+    }
+};
