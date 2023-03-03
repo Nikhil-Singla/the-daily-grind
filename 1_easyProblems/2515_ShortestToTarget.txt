@@ -3,7 +3,7 @@ public:
     int closetTarget(vector<string>& words, string target, int startIndex) 
     {
         vector<int> location;
-        int result, n = words.size();
+        int result = 200, n = words.size();
 
         for(int i = 0; i < n; i++)
         {
@@ -18,8 +18,9 @@ public:
         }
         for(auto c : location)
         {
-            int reverse = n - c + startIndex;
-            int forward = c - startIndex + 2;
+            int reverse = abs(n - startIndex + c);
+            int forward = abs(c - n);
+            //cout<<"at:"<<c<<" is -"<<reverse<<" : "<<forward<<"\n";
             result = min(result, forward);
             result = min(result, reverse);
         }
