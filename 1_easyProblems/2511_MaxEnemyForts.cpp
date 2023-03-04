@@ -2,6 +2,26 @@ class Solution {
 public:
     int captureForts(vector<int>& forts) 
     {
+        int result = 0, prev = 0; 
+        for(int i = 0; i < forts.size(); i++)
+        {
+            if(forts[i])
+            {
+                if(forts[i] == -forts[prev])
+                {
+                    result = max(result, i - prev - 1);
+                }
+                prev = i;
+            }
+        }
+        return result; 
+    }
+};
+//Code failing in specific testcases where the numbers overlap
+/* class Solution {
+public:
+    int captureForts(vector<int>& forts) 
+    {
         int result = 0;
         vector<int> empty, ally;
         for(int i = 0; i < forts.size(); i++)
@@ -22,4 +42,4 @@ public:
         }
         return result;
     }
-};
+}; */
