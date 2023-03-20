@@ -2,6 +2,24 @@ class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) 
     {
+        unordered_map<int, int>ans;
+        int res=0;
+        for(auto x : nums)
+        {
+            if(ans[x])
+            {
+                res += ans[x];
+            }
+            ans[x] += 1;
+        }
+        return res;   
+    }
+};
+
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) 
+    {
         int count = 0;
         for(int i = 0; i < nums.size()-1; i++)
         {
