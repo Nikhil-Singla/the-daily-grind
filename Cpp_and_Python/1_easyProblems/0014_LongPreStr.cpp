@@ -1,9 +1,5 @@
 /** 
 The longestCommonPrefix function takes a vector of strings as input and returns the longest common prefix of all the strings.
-The function first sorts the input vector in ascending order using the sort function from the standard library. 
-It then determines the number of strings in the input vector and initializes an empty string ans for the common prefix.
-The function then iterates over each character in the first and last strings of the sorted vector. If the current character is the same in both strings, 
-it is added to the common prefix. If the current character is different, the loop is broken and the function returns the common prefix.
 **/
 
 class Solution {
