@@ -18,6 +18,6 @@ public:
         {
             ans = max(ans, sum(c));
         }
-        return max;
+        return ans;
     }
 };
