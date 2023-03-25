@@ -1,4 +1,4 @@
-//Code as required by testcase:
+### Code as required by testcase:
 
 .globl hello
 
@@ -11,3 +11,27 @@ msg: .asciiz "Hello, World!"
 hello:
         la    $v0, msg
         jr    $ra
+
+### Modified code for printing to output.
+# Declare the hello function as global
+.globl hello
+
+# Start of the data segment
+.data
+
+# Declare a null-terminated string with the label 'msg'
+msg: .asciiz "Hello, World!"
+
+# Start of the code segment
+.text
+
+# Define the hello function
+hello:
+    # Load the system call code for printing a string into register $v0
+    li $v0, 4
+    # Load the address of the string 'msg' into register $a0
+    la $a0, msg
+    # Execute the system call to print the string
+    syscall
+    # Return from the function
+    jr $ra
