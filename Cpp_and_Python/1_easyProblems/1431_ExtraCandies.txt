@@ -11,7 +11,7 @@ public:
         vector<bool> result;
         for(auto c : candies)
         {
-            std::cout<<c<<" ";
+            //std::cout<<c<<" ";
             if(c >= highest)
             {
                 result.push_back(true);
