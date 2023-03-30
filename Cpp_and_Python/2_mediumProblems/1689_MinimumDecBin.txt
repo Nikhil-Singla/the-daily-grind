@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int minPartitions(string n) 
+    {
+        int result = 1;
+        for(auto c : n)
+        {
+            int temp = c - '0';
+            result = max(result, temp);
+            if(result == 9)
+            {break;}
+        }
+        return result;    
+    }
+};
