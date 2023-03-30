@@ -7,6 +7,8 @@ NATURAL JOIN Transactions
 GROUP BY name
 HAVING balance > 10000
 
+
+
 # OPTIMAL SOLUTION (LEETCODE)
 # Write your MySQL query statement below
 SELECT 
