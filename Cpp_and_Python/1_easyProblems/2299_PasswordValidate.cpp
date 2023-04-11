@@ -55,19 +55,29 @@ class Solution {
 public:
     bool strongPasswordCheckerII(string password) 
     {
+        // Get the length of the password
         int len = password.length();
 
+        // If password length is less than 8, it is not a strong password
         if(len < 8)
-        {return false;}   
+        {
+            return false;
+        }
 
+        // Create a bool array to store the presence of lowercase, uppercase, digit and special characters in the password
         bool checker[4] = {false};
+
+        // Create an integer array to store the count of each character in the password
         int count[128] = {0};
 
+        // Initialize the count of the first character in the password
         char temp = password[0];
         count[temp]++;
 
+        // Iterate over the rest of the password and count the occurrence of each character
         for(int i = 1; i < len; i++)
         {
+            // If two consecutive characters are the same, the password is not strong
             if(temp == password[i])
             {
                 return false;
@@ -76,6 +86,8 @@ public:
             count[temp]++;
         }
 
+        // Iterate over the lowercase letters, uppercase letters, digits, and special characters in the password
+        // and mark the corresponding boolean value in the checker array as true if any of these characters are present in the password
         for(int i = 'a'; i <= 'z'; i++)
         {
             if(count[i] > 0)
@@ -105,6 +117,8 @@ public:
                 checker[3] = true;
             }
         }
+
+        // If all the required characters are present in the password, it is a strong password
         return (checker[0] && checker[1] && checker[2] && checker[3]);
     }
 };
