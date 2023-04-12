@@ -1,7 +1,5 @@
-# l33tcode
-Its Problem Solving :D
-
-Multiple tries; Commits to GitHub only when there's a qualitative change in the code
+# Coding Problems
+Solving coding questions on various platforms. 
 
 Disclaimer: 
 All the code is only tailored to the competition/problem and serves to demonstrate understanding, and is in no way exhaustive of the real world scenarios. 
