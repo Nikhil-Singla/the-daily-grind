@@ -1,6 +1,0 @@
-Name: <Name>
-<Description>
-Date: DD MMMM 20YY
-
-Solutions Submitted:
-=> XXXX ms: <About the try>
