@@ -14,7 +14,7 @@ public:
     {
         customstream[idKey-1] = value;
         vector<string> ans;
-        while(customstream[pointer] != "1" && pointer < count)
+        while(pointer < count && customstream[pointer] != "1")
         {
             ans.push_back(customstream[pointer++]);
         }    
