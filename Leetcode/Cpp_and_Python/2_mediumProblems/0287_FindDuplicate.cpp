@@ -1,3 +1,26 @@
+// Daily Problem Solution 
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) 
+    {
+		int slow = nums[0];
+		int fast = nums[nums[0]];
+        while(slow != fast)
+        {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }    
+        int entryPoint = 0;
+        while (entryPoint != slow)
+		{
+			entryPoint = nums[entryPoint];
+			slow = nums[slow];
+		}
+		return slow;
+
+    }
+};
+
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) 
