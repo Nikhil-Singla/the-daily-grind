@@ -1,3 +1,30 @@
+//Daily Leetcode Solution
+class Solution {
+public:
+    bool isSubsequence(string s, string t) 
+    {
+        int length = s.length();
+        if(length <= 0)
+        {
+            return true;
+        }
+        if(s.length() > t.length())
+        {return false;}
+        for(int i = 0, j = 0; i < t.length(); i++)
+        {
+            if(t[i] == s[j])
+            {
+                j++;
+            }
+            if(j == length)
+            {
+                return true;
+            }
+        }    
+        return false;
+    }
+};
+
 class Solution {
 public:
     bool isSubsequence(string s, string t) 
