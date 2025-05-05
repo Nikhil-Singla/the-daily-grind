@@ -10,9 +10,7 @@ class Solution:
             d[dominoSet] += 1
 
         for oneVal in d.values():
-            if oneVal == 2:
-                answer += 1
-            elif oneVal >= 2:
+            if oneVal >= 2:
                 answer += (oneVal * (oneVal-1))/2   # Combination selection
 
         return int(answer)
