@@ -26,7 +26,9 @@ class Solution:
                 
                 for eachKey in keys[box]:           # Check keys we get
                     openedSet.add(eachKey)
-            
+            else:
+                boxStack.add(box)
+                
         flag = 0
 
         # Below loop runs while box stack isn't empty
@@ -71,6 +73,3 @@ class Solution:
             retVal += candies[answer]
 
         return retVal            
-
-        
-        
