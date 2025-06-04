@@ -1,5 +1,8 @@
 class Solution:
     def answerString(self, word: str, numFriends: int) -> str:
+        if numFriends == 1:
+            return word
+
         size = len(word)
         excess = size - numFriends
         answer = ord(word[0])
@@ -26,31 +29,30 @@ class Solution:
         startSpot = highestList[0]
         answer = word[startSpot:startSpot+excess+1]
         # print(word, answer, highestList)
+        wordLen = len(answer)
 
         for spot in highestList:
             current = word[spot:spot+excess+1]
             curSize = len(current)
             anSize = len(answer)
-            
-            if curSize == anSize:
-                for i in range(curSize):
-                    comparator = ord(answer[i]) - ord(current[i])
+            minsize = min(curSize, anSize)
 
-                    if comparator < 0:
-                        for idx in range(i, len(answer)):
-                            # print(answer)
-                            answer[idx] = current[idx]
-                    elif comparator > 0:
-                        break
-                    else:
-                        continue
+            for i in range(minsize):
+                comparator = ord(answer[i]) - ord(current[i])
 
-            if curSize > anSize:
-                answer = current
+                if comparator < 0:
+                    for idx in range(i, minsize):
+                        # print(answer)
+                        answer[idx] = current[idx]
+                        wordLen = minsize
+                elif comparator > 0:
+                    break
+                else:
+                    continue
             
         retVal = ""
         for s in answer:
             retVal += s 
 
-        return retVal
+        return retVal[:wordLen]
 
