@@ -1,28 +1,41 @@
+ORD_A = 97
+
 class Solution:
     def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
-        smallEq = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
-                        'q','r','s','t','u','v','w','x','y','z']
+        # Range is exclusive at the end
+        alphabet = list(range(26))
+
+        def find(x):
+            if alphabet[x] != x:
+                alphabet[x] = find(alphabet[x])
+
+            return alphabet[x]
+
+        def union(x, y):
+            xRoot = find(x)
+            yRoot = find(y)
+
+            if xRoot == yRoot:
+                return
+
+            elif xRoot < yRoot:
+                alphabet[yRoot] = xRoot
+
+            elif xRoot >  yRoot:
+                alphabet[xRoot] = yRoot
 
         for i in range(len(s1)):
-            alpha1, alpha2 = ord(s1[i])-97, ord(s2[i])-97
-            diff = ord(smallEq[alpha1]) - ord(smallEq[alpha2])
-            if diff < 0:
-                smallEq[alpha2] = smallEq[alpha1]
-            elif diff > 0:
-                smallEq[alpha1] = smallEq[alpha2]
+            firstElement = ord(s1[i]) - ORD_A
+            secondElement = ord(s2[i]) - ORD_A
 
-        # print(smallEq)
+            union(firstElement, secondElement)
 
         ans = ""
+
         for i in baseStr:
-            letter = ord(i) - 97
-            actual = smallEq[letter]
-
-            while actual != chr(letter+97):
-                letter = ord(actual) - 97
-                actual = smallEq[letter]
-                # print(smallEq, actual, letter)
-
-            ans += actual
+            iStr = ord(i) - ORD_A
+            actual = find(iStr)
+            actual += ORD_A
+            ans += chr(actual)
 
         return ans
