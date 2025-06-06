@@ -3,10 +3,16 @@ class Solution:
         modS = sorted(s)
         robot = []
         answer = ""
-        for i in modS:
+        counter = 0
+
+        while counter < len(modS):
+        
+            i = modS[counter]
+            
             if robot:
-                if i == robot[-1]:
+                if i >= robot[-1]:
                     answer += robot.pop()
+                    counter -= 1
                     continue
 
             if i in s:
@@ -15,6 +21,8 @@ class Solution:
                 s = s[index+1:]
 
                 answer += i
+
+            counter += 1
             # print(i)
 
         # print(robot)
