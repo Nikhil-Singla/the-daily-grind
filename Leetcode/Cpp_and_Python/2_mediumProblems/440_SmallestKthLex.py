@@ -1,22 +1,28 @@
 class Solution:
     def findKthNumber(self, n: int, k: int) -> int:
-        count = 1        
-        tracker = 0
+        num = 1
+        pos = 1
 
-        while tracker <= n:
-            if count <= n:
-                tracker += 1
+        def count(num):
+            nei = num + 1
+            result = 0
 
-            if tracker == k:
-                return count
+            while num <= n:
+                result += min(nei, n+1) - num
+                num *= 10
+                nei *= 10
 
-            if count*10 <= n:
-                count *= 10
+            return result
+
+        while pos < k:
+            steps = count(num)
+
+            if pos + steps <= k:
+                num += 1
+                pos += steps
             else:
-                while count > n or count%10 == 9:
-                    count = count // 10
-                
-                count += 1
+                num *= 10
+                pos += 1
 
-        return 0
+        return num
                 
