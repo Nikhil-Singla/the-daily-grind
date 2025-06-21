@@ -6,7 +6,7 @@ class Solution:
             freq[ord(i) - ord('a')] += 1
 
         retVal = float('inf')
-        print(freq)
+        # print(freq)
 
         for i in range(26):
             if (freq[i] == 0):
