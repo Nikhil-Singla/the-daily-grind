@@ -1,19 +1,15 @@
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
+
         freq = Counter(nums)
+        integers = freq.keys()
         retVal = 0
 
-        for i in nums:
-            if freq[i+1]:
-                s1 = freq[i+1] + freq[i]
-            else:
-                s1 = 0
+        for i in integers:
+            if i-1 in integers:
+                retVal = max(retVal, freq[i] + freq[i-1])
 
-            if freq[i-1]:
-                s2 = freq[i-1] + freq[i]
-            else:
-                s2 = 0
-
-            retVal = max(retVal, s1, s2)
+            if i+1 in integers:
+                retVal = max(retVal, freq[i] + freq[i+1])
 
         return retVal
