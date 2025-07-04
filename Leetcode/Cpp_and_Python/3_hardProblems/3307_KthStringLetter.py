@@ -1,7 +1,9 @@
 class Solution:
     def kthCharacter(self, k: int, operations: List[int]) -> str:
 
-        start = 'a'
+        if k == 1:
+            return 'a'
+
         count = 1
 
         reverse = []
@@ -9,9 +11,9 @@ class Solution:
 
         for idx, i in enumerate(operations):
             # print(idx, i, count)
-            
+
             if count >= k:
-                reverse = operations[idx::-1]
+                reverse = operations[:idx]
                 # print(reverse)
                 break
 
@@ -19,15 +21,24 @@ class Solution:
 
         if not reverse:
             reverse = operations[::-1]
+        else:
+            reverse = reverse[::-1]
 
         for i in reverse:
-            print(count, k)
+            # print(i, count, k)
             count //= 2
-            
+
             if i:
                 if k > count:
                     shift += 1
-            
-            k -= (count // 2)    
+                    k -= (count)
+                    
+                    # print(k)
+
+            else:
+
+                if k > count:
+                    k -= (count)
+
 
         return chr((shift % 26) + ord('a'))
