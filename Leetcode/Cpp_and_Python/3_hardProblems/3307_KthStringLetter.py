@@ -40,5 +40,4 @@ class Solution:
                 if k > count:
                     k -= (count)
 
-
         return chr((shift % 26) + ord('a'))
