@@ -32,8 +32,8 @@ This repository documents my problem-solving journey across data structures, alg
 ## Distribution Visualization
 
 <p align="left">
-  <img src="assets/chart_difficulty.png" alt="Difficulty Breakdown" width="300"> &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="assets/chart_language.png" alt="Language Breakdown" width="300">
+  <img src="assets/chart_difficulty.png" alt="Difficulty Breakdown" width="350"> &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="assets/chart_language.png" alt="Language Breakdown" width="350">
 </p>
 
 ## Folder Structure
