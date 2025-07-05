@@ -5,6 +5,12 @@
 ![Last Update](https://img.shields.io/github/last-commit/Nikhil-Singla/the-daily-grind)
 ![License](https://img.shields.io/github/license/Nikhil-Singla/the-daily-grind)
 
+![Total Problems](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=Problems%20Solved&query=$.total&color=blue)
+![Python](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=Python&query=$.by_language.python&color=yellow)
+![C++](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=C%2B%2B&query=$.by_language.cpp&color=green)
+![JavaScript/TS](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=JS%2FTS&query=$.by_language.js_ts&color=orange)
+
+
 > A log of 300+ algorithmic problems, solved in Python and C++.
 Built to demonstrate my strong core CS concepts, through real-world coding drills and practices.
 
@@ -24,11 +30,8 @@ Each problem includes not only my attempt of the solutions in Python or C++, but
 <br />
 
 ---
-<!--
-
 ## NEED TO CHANGE Folder Structure
 
-```bash
 algorithmic-arsenal/
 │
 ├── python/
@@ -42,5 +45,3 @@ algorithmic-arsenal/
 │   └── hard/
 │
 └── assets/      # for charts and visuals
-
--->

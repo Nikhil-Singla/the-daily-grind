@@ -1,0 +1,36 @@
+{
+  "platforms": {
+    "leetcode/cpp": {
+      "01_easy": 183,
+      "02_medium": 47,
+      "03_hard": 6
+    },
+    "leetcode/python": {
+      "01_easy": 21,
+      "02_medium": 17,
+      "03_hard": 6
+    },
+    "leetcode/js_ts": {
+      "01_easy": 3,
+      "02_medium": 0,
+      "03_hard": 0
+    },
+    "leetcode/mysql": {
+      "01_easy": 12,
+      "02_medium": 1,
+      "03_hard": 0
+    }
+  },
+  "total": 296,
+  "by_language": {
+    "cpp": 236,
+    "python": 44,
+    "js_ts": 3,
+    "mysql": 13
+  },
+  "by_difficulty": {
+    "01_easy": 219,
+    "02_medium": 65,
+    "03_hard": 12
+  }
+}
