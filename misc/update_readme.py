@@ -3,66 +3,71 @@ from pathlib import Path
 import re
 import sys
 
+ROOT = Path(__file__).resolve().parents[1]
+stats_path = ROOT / "stats.json"
+readme_path = ROOT / "README.md"
+
 # Load stats.json
-stats_path = Path("stats.json")
 if not stats_path.exists():
     print("stats.json not found.")
     sys.exit(1)
 
-stats = json.load(stats_path.open("r", encoding="utf-8"))
+with stats_path.open("r", encoding="utf-8") as f:
+    stats = json.load(f)
 
-# Difficulty label map (your folder prefixes to readable labels)
+# Difficulty label mapping from folder keys
 difficulty_labels = {
     "01_easy": "Easy",
     "02_medium": "Medium",
     "03_hard": "Hard"
 }
 
-# Build the difficulty breakdown section
+# Extract from 'leetcode_only'
+leetcode_difficulties = stats.get("leetcode_only", {})
+
 difficulty_lines = "\n".join([
-    f"- {label}: {stats['by_difficulty'].get(key, 0)}"
+    f"- {label}: {leetcode_difficulties.get(key, 0)}"
     for key, label in difficulty_labels.items()
 ])
 
-# Format language usage line
+# Format language usage
+by_language = stats.get("by_language", {})
 language_lines = ", ".join([
     f"{lang} ({count})"
-    for lang, count in stats['by_language'].items()
+    for lang, count in by_language.items()
 ])
 
-# Final stats block to inject
+# Compose block
 summary_block = f"""
-- **Total Problems Solved**: {stats['total']}
+- **Total Problems Solved**: {stats.get('total', 0)}
 - **Languages Used**: {language_lines}
-- **Difficulty Breakdown**:
+- **Difficulty Breakdown (Leetcode Only)**:
 {difficulty_lines}
 """.strip()
 
 # Load README.md
-readme_path = Path("README.md")
 if not readme_path.exists():
     print("README.md not found.")
     sys.exit(1)
 
 readme_content = readme_path.read_text(encoding="utf-8")
 
-# Marker tags for stats block
+# Replace between STATS tags
 start_tag = r"<!-- STATS:START -->"
 end_tag = r"<!-- STATS:END -->"
 pattern = rf"{start_tag}(.*?){end_tag}"
 
-# Inject the block
 if re.search(pattern, readme_content, re.DOTALL):
-    new_readme = re.sub(
+    updated_content = re.sub(
         pattern,
         f"{start_tag}\n{summary_block}\n{end_tag}",
         readme_content,
         flags=re.DOTALL
     )
-    print("Stats section replaced successfully.")
+    print("STATS section updated.")
 else:
-    print("STATS markers not found. Appending block at the end of README.")
-    new_readme = readme_content.strip() + f"\n\n{start_tag}\n{summary_block}\n{end_tag}"
+    updated_content = readme_content.strip() + f"\n\n{start_tag}\n{summary_block}\n{end_tag}"
+    print("STATS section not found. Appended at end of README.")
 
-# Write the updated README
-readme_path.write_text(new_readme, encoding="utf-8")
+# Write back
+readme_path.write_text(updated_content, encoding="utf-8")
