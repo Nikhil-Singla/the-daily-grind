@@ -27,10 +27,10 @@ jobs:
 
       - name: Run stat and chart generation scripts
         run: |
-          python scripts/update_stats.py
-          python scripts/generate_language_chart.py
-          python scripts/generate_difficulty_chart.py
-          python scripts/update_readme.py
+          python misc/update_stats.py
+          python misc/generate_language_chart.py
+          python misc/generate_difficulty_chart.py
+          python misc/update_readme.py
 
       - name: Commit and push changes
         run: |
