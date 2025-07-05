@@ -1,42 +1,53 @@
 import json
-import random
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Load counts from stats.json
-with open("stats.json") as f:
+# Resolve root directory relative to script's location
+ROOT = Path(__file__).resolve().parents[1]
+
+# Load stats.json
+with open(ROOT / "stats.json") as f:
     stats = json.load(f)
 
-data = stats['by_language']
+data = stats.get('by_language', {})
+if not data:
+    raise ValueError("No language data found in stats.json.")
 
 labels = list(data.keys())
 sizes = list(data.values())
 
-explode = [0] * len(labels)  
-# Explode the maximum value
+# Explode the largest segment
+explode = [0.1 if i == max(sizes) else 0 for i in sizes]
 
-max_index = sizes.index(max(sizes))
-explode[max_index] = 0.1
-
+# Define static color palette (safe for up to 14 languages)
 colors = [
     "#F87171", "#60A5FA", "#34D399", "#FCD34D",
     "#A78BFA", "#FB923C", "#4ADE80", "#38BDF8", "#F472B6",
     "#FACC15", "#818CF8", "#5EEAD4", "#C084FC", "#FBBF24"
 ]
-
-# We get number of labels, and then randomly select that many colors, assuming there are enough colors
 colors = colors[:len(labels)]
 
+# Plot
 plt.figure(figsize=(4, 4))
+plt.pie(
+    sizes,
+    labels=None,
+    colors=colors,
+    startangle=180,
+    explode=explode,
+    shadow=False
+)
+plt.axis('equal')  # Keep aspect ratio as a circle
+plt.title("Language Distribution", fontsize=14)
 
-plt.pie(sizes, colors=colors, startangle=180, explode=explode, shadow=True)
-
-plt.axis('equal')  # Pie Circle
-plt.title('Language Distribution')
-
-# Want the legend to be snug with the border
+# Add legend
 plt.legend(labels, title="Languages", loc="lower right", fontsize=8)
 plt.tight_layout()
 
-Path("assets").mkdir(exist_ok=True)
-plt.savefig("assets/chart_language.png")
+# Save to assets/chart_language.png
+assets_path = ROOT / "assets"
+assets_path.mkdir(exist_ok=True)
+plt.savefig(assets_path / "chart_language.png", bbox_inches='tight')
+plt.close()
+
+print("Language chart saved to assets/chart_language.png")

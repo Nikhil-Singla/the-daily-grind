@@ -1,67 +1,117 @@
 import os
 import json
 from pathlib import Path
+from collections import defaultdict
 
-# Get the root directory of the project
-# Assuming this script is in misc/update_stats.py, we go two levels up to get the root
 ROOT = Path(__file__).resolve().parents[1]
 
-# print(ROOT)
+PLATFORMS = ['leetcode', 'hacker_rank']
+DIFFICULTY_KEYS = ['01_easy', '02_medium', '03_hard']
+VALID_EXTENSIONS = ['.py', '.cpp', '.js', '.ts', '.sql']
 
-# Languages and platforms to support
-STRUCTURE = {
-    'leetcode': ['cpp', 'python', 'js_ts', 'mysql'],
-    'hackerrank': ['problem_solving', 'python']
+# Extension-to-language mapping
+EXT_TO_LANG = {
+    '.py': 'python',
+    '.cpp': 'cpp',
+    '.js': 'js_ts',
+    '.ts': 'js_ts',
+    '.sql': 'mysql'
 }
 
-def countProblems(baseFolder):
+def get_subfolders(path: Path):
+    return [f.name for f in path.iterdir() if f.is_dir()]
 
-    # Folderlist refers to the folder naming convention used
-    # Each repository has three folders for different difficulty levels
-    folderList = {'01_easy': 0, '02_medium': 0, '03_hard': 0}
-    
-    for difficulty in folderList:
+def count_leetcode_problems(path: Path):
+    counts = {key: 0 for key in DIFFICULTY_KEYS}
+    lang_total = 0
+    ext_counts = defaultdict(int)
 
-        # Append the difficulty level (following the folder naming convention) to the base folder
-         
-        diffDirectory = baseFolder / difficulty
+    for diff in DIFFICULTY_KEYS:
+        diff_path = path / diff
+        if diff_path.exists():
+            for f in diff_path.iterdir():
+                if f.is_file() and f.suffix in VALID_EXTENSIONS:
+                    counts[diff] += 1
+                    ext = f.suffix
+                    ext_counts[EXT_TO_LANG.get(ext, 'other')] += 1
+                    lang_total += 1
 
-        # Check if the directory exists
+    return counts, ext_counts, lang_total
 
-        if diffDirectory.exists():
-            
-            folderList[difficulty] = len([
-                # List all files in the directory that match the specified extensions
-                oneFile for oneFile in diffDirectory.iterdir() if (oneFile.is_file() and oneFile.suffix in ['.py', '.cpp', '.js', '.ts', '.sql'])                
-            ])
+def count_hacker_rank_problems(path: Path):
+    count = 0
+    ext_counts = defaultdict(int)
 
-    return folderList
+    for root, _, files in os.walk(path):
+        for file in files:
+            ext = Path(file).suffix
+            if ext in VALID_EXTENSIONS:
+                lang = EXT_TO_LANG.get(ext, 'other')
+                ext_counts[lang] += 1
+                count += 1
 
-stats = {'platforms': {}, 'total': 0, 'by_language': {}, 'by_difficulty': {'01_easy': 0, '02_medium': 0, '03_hard': 0}}
+    return count, ext_counts
 
-for platformWebsite, languagesUsed in STRUCTURE.items():
+def count_total_all_files(root_path: Path):
+    count = 0
+    for path, _, files in os.walk(root_path):
+        for file in files:
+            if Path(file).suffix in VALID_EXTENSIONS:
+                count += 1
+    return count
 
-    for oneLanguage in languagesUsed:
-        
-        path = ROOT / platformWebsite / oneLanguage
-        if not path.exists():
-            continue
+# Folder structure detection
+STRUCTURE = {platform: get_subfolders(ROOT / platform) for platform in PLATFORMS}
 
-        langKey = f"{platformWebsite}/{oneLanguage}"
+# Final stats object
+stats = {
+    'platforms': {},
+    'total': 0,
+    'by_language': defaultdict(int),
+    'leetcode_only': {key: 0 for key in DIFFICULTY_KEYS},
+    'hacker_rank_only': {}
+}
 
-        difficultyCounter = countProblems(path)
+# Leetcode section
+for lang_folder in STRUCTURE['leetcode']:
+    path = ROOT / 'leetcode' / lang_folder
+    if not path.exists():
+        continue
 
-        stats['platforms'][langKey] = difficultyCounter
+    lang_key = f"leetcode/{lang_folder}"
+    diff_counts, ext_counts, total_files = count_leetcode_problems(path)
+    stats['platforms'][lang_key] = diff_counts
 
-        for diff, count in difficultyCounter.items():
-            
-            stats['total'] += count
-            stats['by_difficulty'][diff] += count
-            stats['by_language'].setdefault(oneLanguage, 0)
-            stats['by_language'][oneLanguage] += count
+    for diff, count in diff_counts.items():
+        stats['leetcode_only'][diff] += count
 
-# Save to stats.json at root
+    for lang, count in ext_counts.items():
+        stats['by_language'][lang] += count
+
+# HackerRank section
+for topic_folder in STRUCTURE['hacker_rank']:
+    path = ROOT / 'hacker_rank' / topic_folder
+    if not path.exists():
+        continue
+
+    count, ext_counts = count_hacker_rank_problems(path)
+    stats['platforms'][f"hacker_rank/{topic_folder}"] = count
+    stats['hacker_rank_only'][topic_folder] = count
+
+    for lang, cnt in ext_counts.items():
+        stats['by_language'][lang] += cnt
+
+# Final total
+stats['total'] = (
+    count_total_all_files(ROOT / 'leetcode') +
+    count_total_all_files(ROOT / 'hacker_rank')
+)
+
+# Convert defaultdict to dict before saving
+stats['by_language'] = dict(stats['by_language'])
+
+# Save
 with open(ROOT / 'stats.json', 'w') as f:
     json.dump(stats, f, indent=2)
 
-
+print("stats.json updated successfully.")

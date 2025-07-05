@@ -4,34 +4,36 @@
 ![Python](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=Python&query=$.by_language.python&color=yellow)
 ![C++](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=C%2B%2B&query=$.by_language.cpp&color=green)
 ![JavaScript/TS](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=JS%2FTS&query=$.by_language.js_ts&color=orange)
+![MySQL](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=MySQL&query=$.by_language.mysql&color=lightgray)
 ![Last Update](https://img.shields.io/github/last-commit/Nikhil-Singla/the-daily-grind)
 ![License](https://img.shields.io/github/license/Nikhil-Singla/the-daily-grind)
 
-> A log of all the algorithmic problems I have solved in Python, C++, SQL etc. on Leetcode. Built to demonstrate my deep understanding of core CS concepts through real-world coding drills, optimizations, and pattern-based thinking.
+> A log of algorithmic problems solved in Python, C++, SQL, JavaScript, and more—across Leetcode and HackerRank. Built to demonstrate deep understanding of core CS concepts through structured coding drills, pattern recognition, and solution design.
 
+---
 
 ## Overview
 
-This repository documents my structured problem-solving journey across a wide range of topics including Dynamic Programming, DSA and Algorithms. Each solution is sometimes accompanied by optimizations and alternative approaches, emphasizing patterns and strategies.
+This repository documents my problem-solving journey across data structures, algorithms, and systems-style challenges. Solutions emphasize clarity, performance, and repeatable reasoning strategies, often including multiple variations and optimizations.
+
+---
 
 ## Stats Summary
 
 <!-- STATS:START -->
-- **Total Problems Solved**: 296
-- **Languages Used**: cpp (236), python (44), js_ts (3), mysql (13)
-- **Difficulty Breakdown**:
-- Easy: 219
-- Medium: 65
-- Hard: 12
+_Stats will be updated automatically by GitHub Actions._
 <!-- STATS:END -->
+
+---
 
 ## Distribution Visualization
 
 <p align="left">
-  <img src="assets/chart_difficulty.png" alt="Language Breakdown", width=308>
-  <img src="assets/chart_language.png" alt="Language Breakdown", width=300>
-
+  <img src="assets/chart_difficulty.png" alt="Difficulty Breakdown" width="320">
+  <img src="assets/chart_language.png" alt="Language Breakdown" width="320">
 </p>
+
+---
 
 ## Folder Structure
 
@@ -47,21 +49,19 @@ the-daily-grind/
 │   │   ├── 01_easy/
 │   │   ├── 02_medium/
 │   │   └── 03_hard/
-│   ├── . . .
-│   .
-├── hackerrank/
+│   ├── ...
+│
+├── hacker_rank/
 │   ├── problem_solving/
-│   │   ├── 01_easy/
-│   │   ├── 02_medium/
-│   │   └── 03_hard/
-│   .
-│   .
+│   ├── python/
+│   └── ...
+│
 ├── assets/              # for charts and visuals
-└── misc/             # for automation and stat generation
+└── misc/                # for stat generation and automation scripts
 </pre>
 
 ---
 
-## 📜 License
+## License
 
 MIT License © [Nikhil Singla](https://github.com/Nikhil-Singla)
