@@ -15,35 +15,32 @@ if not stats_path.exists():
 with stats_path.open("r", encoding="utf-8") as f:
     stats = json.load(f)
 
-# Difficulty label mapping from folder keys
+# Map folder names to human-readable labels
 difficulty_labels = {
     "01_easy": "Easy",
     "02_medium": "Medium",
     "03_hard": "Hard"
 }
 
-# Extract from 'leetcode_only'
+# Format difficulty breakdown from leetcode_only
 leetcode_difficulties = stats.get("leetcode_only", {})
-
 difficulty_lines = "\n".join([
-    f"- {label}: {leetcode_difficulties.get(key, 0)}"
+    f"  - {label}: {leetcode_difficulties.get(key, 0)}"
     for key, label in difficulty_labels.items()
 ])
 
-# Format language usage
-by_language = stats.get("by_language", {})
+# Format languages
 language_lines = ", ".join([
     f"{lang} ({count})"
-    for lang, count in by_language.items()
+    for lang, count in stats.get("by_language", {}).items()
 ])
 
-# Compose block
-summary_block = f"""
-- **Total Problems Solved**: {stats.get('total', 0)}
+# Compose final block for README injection
+summary_block = f"""- **Total Problems Solved**: {stats.get('total', 0)}
 - **Languages Used**: {language_lines}
-- **Difficulty Breakdown (Leetcode Only)**:
+- **Leetcode Breakdown**:
 {difficulty_lines}
-""".strip()
+"""
 
 # Load README.md
 if not readme_path.exists():
@@ -52,7 +49,7 @@ if not readme_path.exists():
 
 readme_content = readme_path.read_text(encoding="utf-8")
 
-# Replace between STATS tags
+# Replace between markers
 start_tag = r"<!-- STATS:START -->"
 end_tag = r"<!-- STATS:END -->"
 pattern = rf"{start_tag}(.*?){end_tag}"
@@ -69,5 +66,5 @@ else:
     updated_content = readme_content.strip() + f"\n\n{start_tag}\n{summary_block}\n{end_tag}"
     print("STATS section not found. Appended at end of README.")
 
-# Write back
+# Save back
 readme_path.write_text(updated_content, encoding="utf-8")
