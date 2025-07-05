@@ -8,13 +8,13 @@
 ![Last Update](https://img.shields.io/github/last-commit/Nikhil-Singla/the-daily-grind)
 ![License](https://img.shields.io/github/license/Nikhil-Singla/the-daily-grind)
 
-> A log of algorithmic problems solved in Python, C++, SQL, JavaScript, and more—across Leetcode and HackerRank. Built to demonstrate deep understanding of core CS concepts through structured coding drills, pattern recognition, and solution design.
+> A log of algorithmic problems solved in Python, C++, SQL, JavaScript. Built to demonstrate my understanding of core CS concepts through coding drills, pattern recognition, and solution design.
 
 ---
 
 ## Overview
 
-This repository documents my problem-solving journey across data structures, algorithms, and systems-style challenges. Solutions emphasize clarity, performance, and repeatable reasoning strategies, often including multiple variations and optimizations.
+This repository documents my problem-solving journey across data structures, algorithms, and analysis challenges. Solutions emphasize clarity, performance, and reasoning strategies, sometimes including multiple variations and optimizations.
 
 ---
 
