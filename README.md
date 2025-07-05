@@ -17,10 +17,10 @@ This repository documents my structured problem-solving journey across a wide ra
 ## Stats Summary
 
 <!-- STATS:START -->
-- **Total Problems Solved**: 296
-- **Languages Used**: cpp (236), python (44), js_ts (3), mysql (13)
+- **Total Problems Solved**: 297
+- **Languages Used**: cpp (236), python (45), js_ts (3), mysql (13)
 - **Difficulty Breakdown**:
-- Easy: 219
+- Easy: 220
 - Medium: 65
 - Hard: 12
 <!-- STATS:END -->
