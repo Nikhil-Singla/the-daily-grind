@@ -28,20 +28,19 @@ Each problem includes not only my attempt of the solutions in Python or C++, but
 - Topics: Arrays, Strings, Graphs, DP, Trees, Heaps, and more
 
 <br />
-
----
-## NEED TO CHANGE Folder Structure
-
-algorithmic-arsenal/
+## Folder Structure 
+<pre lang="markdown">the-daily-grind/
 │
-├── python/
-│   ├── easy/
-│   ├── medium/
-│   └── hard/
+├── leetcode/
+│   ├── python/
+│   ├── cpp/
+│   └── mysql/
 │
-├── cpp/
-│   ├── easy/
-│   ├── medium/
-│   └── hard/
-│
-└── assets/      # for charts and visuals
+├── hackerrank/
+│   ├── problem_solving/
+│   ├── . . ./
+│   .
+│   .
+│   .  
+└── scripts/      # For charts and visuals
+</pre>
