@@ -25,10 +25,11 @@ colors = ['green', 'orange', 'red']
 plt.figure(figsize=(4, 4))
 plt.bar(labels, values, color=colors)
 
-plt.title("Difficulty Breakdown (Leetcode Only)", fontsize=14)
-plt.ylabel("Number of Problems", fontsize=11)
-plt.xticks(fontsize=9)
-plt.yticks(fontsize=9)
+plt.title("Leetcode", fontsize=10)
+plt.ylabel("Number of Problems", fontsize=9)
+plt.xticks(fontsize=8)
+plt.yticks(fontsize=8)
+plt.tight_layout()
 
 # Save output to assets/chart_difficulty.png
 assets_dir = ROOT / "assets"
