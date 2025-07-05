@@ -25,7 +25,7 @@ This repository documents my structured problem-solving journey across a wide ra
 - Hard: 12
 <!-- STATS:END -->
 
-## Language Distribution
+## Distribution Visualization
 
 <p align="left">
   <img src="assets/chart_difficulty.png" alt="Language Breakdown", width=308>
