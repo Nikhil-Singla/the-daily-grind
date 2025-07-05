@@ -14,7 +14,7 @@ values = [
 ]
 colors = ['green', 'orange', 'red']
 
-plt.figure(figsize=(5, 4), dpi=120)
+fig = plt.figure(figsize=(5, 4), dpi=100)
 plt.bar(labels, values, color=colors)
 plt.title("Difficulty Breakdown", fontsize=14)
 plt.ylabel("Number of Problems", fontsize=11)
@@ -22,5 +22,5 @@ plt.xticks(fontsize=10)
 plt.yticks(fontsize=10)
 
 Path("assets").mkdir(exist_ok=True)
-plt.savefig("assets/chart_difficulty.svg", bbox_inches='tight')
+fig.savefig("assets/chart_difficulty.svg", format="svg", bbox_inches="tight", pad_inches=0)
 plt.close()
