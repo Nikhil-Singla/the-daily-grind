@@ -6,14 +6,21 @@ with open("stats.json") as f:
     stats = json.load(f)
 
 diffs = stats['by_difficulty']
-labels = diffs.keys()
-values = diffs.values()
-
+labels = ['Easy', 'Medium', 'Hard']
+values = [
+    diffs.get('01_easy', 0),
+    diffs.get('02_medium', 0),
+    diffs.get('03_hard', 0)
+]
 colors = ['green', 'orange', 'red']
 
+plt.figure(figsize=(5, 4), dpi=120)
 plt.bar(labels, values, color=colors)
-plt.title("Difficulty Breakdown")
-plt.ylabel("Number of Problems")
-plt.tight_layout()
+plt.title("Difficulty Breakdown", fontsize=14)
+plt.ylabel("Number of Problems", fontsize=11)
+plt.xticks(fontsize=10)
+plt.yticks(fontsize=10)
+
 Path("assets").mkdir(exist_ok=True)
-plt.savefig("assets/chart_difficulty.svg")
+plt.savefig("assets/chart_difficulty.svg", bbox_inches='tight')
+plt.close()
