@@ -17,7 +17,12 @@ This repository documents my structured problem-solving journey across a wide ra
 ## Stats Summary
 
 <!-- STATS:START -->
-_Stats will be updated automatically by GitHub Actions._
+- **Total Problems Solved**: 296
+- **Languages Used**: cpp (236), python (44), js_ts (3), mysql (13)
+- **Difficulty Breakdown**:
+- Easy: 219
+- Medium: 65
+- Hard: 12
 <!-- STATS:END -->
 
 ## Language Distribution
@@ -52,7 +57,7 @@ the-daily-grind/
 │   .
 │   .
 ├── assets/              # for charts and visuals
-└── scripts/             # for automation and stat generation
+└── misc/             # for automation and stat generation
 </pre>
 
 ---
