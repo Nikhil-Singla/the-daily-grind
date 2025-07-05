@@ -1,4 +1,4 @@
-# 🧠 My Daily Grind
+# My Daily Grind
 
 ![Total Problems](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=Problems%20Solved&query=$.total&color=blue)
 ![Python](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Nikhil-Singla/the-daily-grind/main/stats.json&label=Python&query=$.by_language.python&color=yellow)
@@ -7,36 +7,28 @@
 ![Last Update](https://img.shields.io/github/last-commit/Nikhil-Singla/the-daily-grind)
 ![License](https://img.shields.io/github/license/Nikhil-Singla/the-daily-grind)
 
-> A log of all the algorithmic problems I have solved in Python, C++, SQL etc. on Leetcode.  
-Built to demonstrate my deep understanding of core CS concepts through real-world coding drills, optimizations, and pattern-based thinking.
+> A log of all the algorithmic problems I have solved in Python, C++, SQL etc. on Leetcode. Built to demonstrate my deep understanding of core CS concepts through real-world coding drills, optimizations, and pattern-based thinking.
 
----
 
-## 🚀 Overview
+## Overview
 
-This repository documents my structured problem-solving journey across a wide range of topics including Dynamic Programming, DSA and Algorithms.
+This repository documents my structured problem-solving journey across a wide range of topics including Dynamic Programming, DSA and Algorithms. Each solution is sometimes accompanied by optimizations and alternative approaches, emphasizing patterns and strategies.
 
-Each solution is sometimes accompanied by optimizations and alternative approaches, emphasizing patterns and strategies.
-
----
-
-## 📊 Stats Summary
+## Stats Summary
 
 <!-- STATS:START -->
 _Stats will be updated automatically by GitHub Actions._
 <!-- STATS:END -->
 
----
-
-## 📈 Language Distribution
+## Language Distribution
 
 <p align="center">
+  <img src="assets/chart_difficulty.svg" alt="Language Breakdown" width="400">
   <img src="assets/chart_language.svg" alt="Language Breakdown" width="400">
+
 </p>
 
----
-
-## 🗂️ Folder Structure
+## Folder Structure
 
 <pre>
 the-daily-grind/
