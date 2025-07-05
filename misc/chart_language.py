@@ -47,7 +47,7 @@ plt.tight_layout()
 # Save to assets/chart_language.png
 assets_path = ROOT / "assets"
 assets_path.mkdir(exist_ok=True)
-plt.savefig(assets_path / "chart_language.png", bbox_inches='tight')
+plt.savefig(assets_path / "chart_language.png")
 plt.close()
 
 print("Language chart saved to assets/chart_language.png")

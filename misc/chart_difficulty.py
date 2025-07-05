@@ -33,7 +33,7 @@ plt.yticks(fontsize=9)
 # Save output to assets/chart_difficulty.png
 assets_dir = ROOT / "assets"
 assets_dir.mkdir(exist_ok=True)
-plt.savefig(assets_dir / "chart_difficulty.png", bbox_inches='tight')
+plt.savefig(assets_dir / "chart_difficulty.png")
 plt.close()
 
 print("Difficulty chart saved to assets/chart_difficulty.png")
