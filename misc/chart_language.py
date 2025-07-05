@@ -1,7 +1,9 @@
 import json
+import random
 import matplotlib.pyplot as plt
 from pathlib import Path
 
+# Load counts from stats.json
 with open("stats.json") as f:
     stats = json.load(f)
 
@@ -9,14 +11,32 @@ data = stats['by_language']
 
 labels = list(data.keys())
 sizes = list(data.values())
-colors = ['#3572A5', '#f1e05a', '#4F5D95', '#3178c6']  # C++, Python, SQL, TS/JS
 
-plt.figure(figsize=(5, 4), dpi=120)
-plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140, textprops={'fontsize': 10})
-plt.axis('equal')
-plt.title('Language Distribution', fontsize=14)
+explode = [0] * len(labels)  
+# Explode the maximum value
+
+max_index = sizes.index(max(sizes))
+explode[max_index] = 0.1
+
+colors = [
+    "#F87171", "#60A5FA", "#34D399", "#FCD34D",
+    "#A78BFA", "#FB923C", "#4ADE80", "#38BDF8", "#F472B6",
+    "#FACC15", "#818CF8", "#5EEAD4", "#C084FC", "#FBBF24"
+]
+
+# We get number of labels, and then randomly select that many colors, assuming there are enough colors
+colors = colors[:len(labels)]
+
+plt.figure(figsize=(4, 4))
+
+plt.pie(sizes, colors=colors, startangle=180, explode=explode, shadow=True)
+
+plt.axis('equal')  # Pie Circle
+plt.title('Language Distribution')
+
+# Want the legend to be snug with the border
+plt.legend(labels, title="Languages", loc="lower right", fontsize=8)
+plt.tight_layout()
 
 Path("assets").mkdir(exist_ok=True)
-plt.savefig("assets/chart_language.svg", bbox_inches='tight')
-
-plt.close()
+plt.savefig("assets/chart_language.svg")
