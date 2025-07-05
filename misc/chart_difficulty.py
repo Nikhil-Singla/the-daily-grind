@@ -21,8 +21,8 @@ plt.bar(labels, values, color=colors)
 plt.title("Difficulty Breakdown", fontsize=14)
 plt.ylabel("Number of Problems", fontsize=11)
 
-plt.xticks(fontsize=10)
-plt.yticks(fontsize=10)
+plt.xticks(fontsize=8)
+plt.yticks(fontsize=8)
 
 plt.show()
 
