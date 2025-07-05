@@ -6,8 +6,8 @@
       "03_hard": 6
     },
     "leetcode/python": {
-      "01_easy": 22,
-      "02_medium": 17,
+      "01_easy": 21,
+      "02_medium": 18,
       "03_hard": 6
     },
     "leetcode/js_ts": {
@@ -31,8 +31,8 @@
     "mysql": 13
   },
   "leetcode_only": {
-    "01_easy": 220,
-    "02_medium": 65,
+    "01_easy": 219,
+    "02_medium": 66,
     "03_hard": 12
   },
   "hacker_rank_only": {
