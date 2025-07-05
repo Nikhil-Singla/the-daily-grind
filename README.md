@@ -28,8 +28,8 @@ This repository documents my structured problem-solving journey across a wide ra
 ## Language Distribution
 
 <p align="left">
-  <img src="assets/chart_difficulty.svg" alt="Language Breakdown", width=300>
-  <img src="assets/chart_language.svg" alt="Language Breakdown", width=300>
+  <img src="assets/chart_difficulty.png" alt="Language Breakdown", width=300>
+  <img src="assets/chart_language.png" alt="Language Breakdown", width=300>
 
 </p>
 

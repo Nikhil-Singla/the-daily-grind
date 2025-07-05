@@ -25,5 +25,5 @@ plt.xticks(fontsize=8)
 plt.yticks(fontsize=8)
 
 Path("assets").mkdir(exist_ok=True)
-plt.savefig("assets/chart_difficulty.svg", bbox_inches='tight')
+plt.savefig("assets/chart_difficulty.png", bbox_inches='tight')
 plt.close()

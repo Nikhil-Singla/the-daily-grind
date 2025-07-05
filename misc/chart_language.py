@@ -39,4 +39,4 @@ plt.legend(labels, title="Languages", loc="lower right", fontsize=8)
 plt.tight_layout()
 
 Path("assets").mkdir(exist_ok=True)
-plt.savefig("assets/chart_language.svg")
+plt.savefig("assets/chart_language.png")
