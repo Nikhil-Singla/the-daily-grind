@@ -16,7 +16,6 @@
 
 This repository documents my problem-solving journey across data structures, algorithms, and analysis challenges. Solutions emphasize clarity, performance, and reasoning strategies, sometimes including multiple variations and optimizations.
 
----
 
 ## Stats Summary
 
@@ -30,16 +29,12 @@ This repository documents my problem-solving journey across data structures, alg
 
 <!-- STATS:END -->
 
----
-
 ## Distribution Visualization
 
 <p align="left">
-  <img src="assets/chart_difficulty.png" alt="Difficulty Breakdown" width="320">
-  <img src="assets/chart_language.png" alt="Language Breakdown" width="320">
+  <img src="assets/chart_difficulty.png" alt="Difficulty Breakdown" width="461"> &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="assets/chart_language.png" alt="Language Breakdown" width="421">
 </p>
-
----
 
 ## Folder Structure
 
