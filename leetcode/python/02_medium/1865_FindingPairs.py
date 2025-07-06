@@ -1,25 +1,27 @@
 class FindSumPairs:
 
     def __init__(self, nums1: List[int], nums2: List[int]):
-        self.firstArr = nums1
-        self.secondArr = nums2
+        self.nums2 = nums2
+        self.dictOfnums1 = Counter(nums1)
         self.dictOfnums2 = Counter(nums2)
+        self.nums1Key = sorted(self.dictOfnums1.keys())
 
     def add(self, index: int, val: int) -> None:
-        self.dictOfnums2[self.secondArr[index]] -= 1
+        self.dictOfnums2[self.nums2[index]] -= 1
 
-        self.secondArr[index] += val
+        self.nums2[index] += val
 
-        self.dictOfnums2[self.secondArr[index]] += 1
+        self.dictOfnums2[self.nums2[index]] += 1
 
 
     def count(self, tot: int) -> int:
         retVal = 0
-        for i in self.firstArr:
-            if i > tot:
-                continue
-
-            retVal += self.dictOfnums2[tot-i]
+        for i in self.nums1Key:
+            if i >= tot:
+                break
+            
+            if tot-i in self.dictOfnums2:
+                retVal += self.dictOfnums2[tot-i] * self.dictOfnums1[i]
 
         return retVal
 
