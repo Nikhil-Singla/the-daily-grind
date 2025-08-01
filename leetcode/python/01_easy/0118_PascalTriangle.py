@@ -10,4 +10,22 @@ class Solution:
             row.append(1) ## Ending element in pascals triangle
             Tri.append(row) ## Appending row to overall triangle
         return Tri ## Returning the required triangle
+
+
+# Daily Leetcode solution, August 1st. Code passes all testcases, and beats 100%
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        triangle = [[1]]
+        if numRows <= 1:
+            return triangle
+
+        for i in range(1, numRows):
+            row = [1]
+            for j in range(i-1):
+                row.append(triangle[i-1][j] + triangle[i-1][j+1])
+
+            row.append(1)
+            triangle.append(row)
+        
+        return triangle
             
