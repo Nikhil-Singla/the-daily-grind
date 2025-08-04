@@ -1,40 +1,25 @@
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
-        if len(fruits) <= 2:
-            return len(fruits)
-
-        current = defaultdict(int)
+        currents = defaultdict(int)
         left = 0
-        sets = 0
-        count = 0
-        retVal = 0
+        maxCount = 0
 
         for i in fruits:
-            if sets < 2:
-                if current[i] == 0:
-                    sets += 1
-
-                current[i] += 1
-                count += 1
-
-            elif current[i] > 0:
-                current[i] += 1
-                count += 1
-            
+            if i in currents:
+                currents[i] += 1
+            elif len(currents) < 2:
+                currents[i] = 0
+                currents[i] += 1
             else:
-                while sets >= 2:
-                    current[fruits[left]] -= 1
-                    count -= 1
+                maxCount = max(maxCount, sum(currents.values()))
+                while len(currents) >= 2:
+                    currents[fruits[left]] -= 1
+                    if currents[fruits[left]] == 0:
+                        del currents[fruits[left]]
 
-                    if current[fruits[left]] <= 0:
-                        sets -= 1
-                    
                     left += 1
 
-                current[i] += 1
-                count += 1
-                sets += 1
+                currents[i] += 1
 
-            retVal = max(count, retVal)
-
-        return retVal
+        maxCount = max(maxCount, sum(currents.values()))
+        return maxCount
