@@ -3,12 +3,7 @@ class Solution:
         MAX_VALUE = 10**9
         
         def get_digits(number):
-            digits = []
-            while number > 0:
-                digits.append(number%10)
-                number //= 10
-
-            return ''.join([str(s) for s in sorted(digits)])
+            return ''.join(sorted(str(number)))
 
         power_set = set()
         
