@@ -25,11 +25,11 @@ class Solution:
         answers = []
 
         for start, end in queries:
-            if start == 0:
+            if start <= 0:
                 answers.append(prefMult[end])
-            elif end == length - 1:
+            elif end >= length - 1:
                 answers.append(sufMult[start])
-            
+            else:
+                answers.append((maxMult * pow(sufMult[end+1], MOD - 2, MOD) % MOD) * pow(prefMult[start-1], MOD - 2, MOD) % MOD)
 
-
-        return 0
+        return answers
