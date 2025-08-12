@@ -1,3 +1,5 @@
+# MEMORY EFFICIENT SOLUTION, BEATS 100%
+
 class Solution:
     def productQueries(self, n: int, queries: List[List[int]]) -> List[int]:
         MOD = 10**9 + 7
