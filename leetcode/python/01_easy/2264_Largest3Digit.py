@@ -3,7 +3,6 @@ class Solution:
 
     def largestGoodInteger(self, nums: str) -> str:
         maxStr = ""        
-        window = 3
         last_term = len(nums) - 2
         i = 0
 
