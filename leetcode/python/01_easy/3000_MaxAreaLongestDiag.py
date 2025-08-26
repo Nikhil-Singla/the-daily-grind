@@ -1,3 +1,20 @@
+# [SPEED OPTIMAL SOLUTION]
+class Solution:
+    def areaOfMaxDiagonal(self, dimensions: List[List[int]]) -> int:
+        maxDiag = 0
+        maxArea = 0
+        for i, j in dimensions:
+            diagonal = i*i + j*j
+            if diagonal > maxDiag:
+                maxDiag = diagonal
+                maxArea = i * j
+            elif diagonal == maxDiag:
+                maxArea = max(maxArea, i * j)
+
+        return maxArea
+
+
+# [MEMORY OPTIMAL SOLUTION]
 class Solution:
     def areaOfMaxDiagonal(self, dimensions: List[List[int]]) -> int:
         maxDiag = 0
