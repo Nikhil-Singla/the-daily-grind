@@ -3,11 +3,9 @@ class Solution:
         coordinate_offsets = [(1, 1), (1, -1), (-1, -1), (-1, 1)]
         rows = len(grid)
         cols = len(grid[0])
-        memo = [[[[-1 for _ in range(2)] for _ in range(4)] for _ in range(cols)] for _ in range(rows)]
 
+        @cache
         def dfs(x, y, direction, turn, target):
-            if memo[x][y][direction][turn] > -1:
-                return memo[x][y][direction][turn]
             
             nextx, nexty = x + coordinate_offsets[direction][0], y + coordinate_offsets[direction][1]
             
@@ -23,7 +21,6 @@ class Solution:
             if it_can_turn:
                 current_step = max(current_step, dfs(nextx, nexty, (direction + 1) % 4, False, 2-target))
 
-            memo[x][y][direction][turn] = current_step + 1
             return current_step + 1
 
         ans = 0
@@ -31,7 +28,5 @@ class Solution:
             for j in range(cols):
                 if grid[i][j] == 1:
                     for dir in range(4):
-                        print(coordinate_offsets[dir])
                         ans = max(ans, dfs(i, j, dir, True, 2) + 1)
-                        print(ans)
         return ans
