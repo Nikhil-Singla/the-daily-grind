@@ -29,4 +29,4 @@
 | ![EDT](https://img.shields.io/badge/EDT-Editorial%20Solution-blue)| Editorial solution, self-implemented            |
 | ![CPY](https://img.shields.io/badge/CPY-Copied-red)             | Copied solution, needs revision                 |
 | ![IGN](https://img.shields.io/badge/IGN-Ignore-lightgrey)       | Ignore the attempt/file                         |
-| ![L/P](https://img.shields.io/badge/L%2FP-Logical%20Pseudocode-lightgrey)| Logical Pseudocode                        |
+| ![L/P](https://img.shields.io/badge/L%2FP-Logical%20Pseudocode-lightgrey)| Logical Starter code/Pseudocode           |
