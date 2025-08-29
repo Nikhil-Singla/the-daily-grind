@@ -1,18 +1,13 @@
 class Solution:
     def flowerGame(self, n: int, m: int) -> int:
-        ans = 0
+        n
+        even = n // 2
+        odd = (n+1) // 2
         
-        if n%2 == 0:
-            even = n//2
-            odd = n - even
-        else:
-            even = (n - 1) // 2
-            odd = n - even
+        m
+        even = m // 2
+        odd = (m+1) // 2
 
-        for i in range(1, m+1):
-            if i & 1:
-                ans += even
-            else:
-                ans += odd
+        ans = ((n // 2) * ((m+1) // 2))) + (((n+1) // 2) * (m // 2))
 
         return ans
