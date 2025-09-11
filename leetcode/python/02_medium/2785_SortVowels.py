@@ -1,4 +1,4 @@
-[A1] [SE] [ME] 
+# [A1] [SE] [ME] 
 class Solution:
     def sortVowels(self, s: str) -> str:
         vowels = set(['a','e','i','o','u','A','E','I','O','U'])
@@ -20,7 +20,7 @@ class Solution:
         
         return ''.join(s)
 
-[A2] [S.CHECK] [MO] [ALT] [CPY] [IGN]
+# [A2] [S.CHECK] [MO] [ALT] [CPY] [IGN]
 class Solution:
     def sortVowels(self, s: str) -> str:
         vowels = {'A':0, 'E':1, 'I':2, 'O':3, 'U':4, 'a':5, 'e':6, 'i':7, 'o':8, 'u':9}
@@ -48,3 +48,23 @@ class Solution:
             return True
         else:
             return False
+
+# [A3] [SO] [MO] [IMP]
+
+class Solution:
+    def sortVowels(self, s: str) -> str:
+        vowels = set(['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'])
+        
+        counter = Counter(s)
+        
+        present_vowel_set = set()
+
+        for i in vowels:
+            if i in counter:
+                present_vowel_set.add(i)
+                s = s.replace(i, '_')
+
+        for i in sorted(present_vowel_set):
+            s = s.replace('_', i, counter[i])
+
+        return s
