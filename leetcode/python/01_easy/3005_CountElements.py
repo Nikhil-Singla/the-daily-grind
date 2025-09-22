@@ -1,20 +1,14 @@
-# [A1] [MF] [S.CHECK]
+# [A2] [SO] [ME] [IMP]
 
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
-        counter = [0] * 100
-        
-        for i in nums:
-            counter[i-1] += 1
+        counter = Counter(nums)
+        max_freq = max(counter.values())
 
-        elements = []
-        max_element = 0
-        
-        for idx, i in enumerate(counter):
-            if i > max_element:
-                max_element = i
-                elements = [idx+1]
-            elif i == max_element:
-                elements.append(idx+1)
+        addon = 0
 
-        return len(elements) * max_element
+        for i in counter.values():
+            if i == max_freq:
+                addon += max_freq
+
+        return addon
