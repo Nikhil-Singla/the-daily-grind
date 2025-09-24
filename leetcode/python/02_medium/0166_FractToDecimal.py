@@ -1,4 +1,4 @@
-# [A1] [S.CHECK] [M.CHECK] [EDT]
+# [A2] [IMP] [MO] [SO]
 
 class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
@@ -13,7 +13,7 @@ class Solution:
 
         remainder = numerator % denominator
         remainders = {}
-        ongoing_decimal = []
+        ongoing_decimal, count = [], 0
 
         while remainder != 0:
             if remainder in remainders:
@@ -22,11 +22,11 @@ class Solution:
                 ongoing_decimal.append(")")
                 break
 
-            remainders[remainder] = len(ongoing_decimal)
+            remainders[remainder] = count
+            count += 1
             remainder *= 10
-            digit = remainder // denominator
 
-            ongoing_decimal.append(str(digit))
+            ongoing_decimal.append(str(remainder // denominator))
             remainder %= denominator
 
         return result + "".join(ongoing_decimal)
