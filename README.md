@@ -20,11 +20,11 @@ This repository documents my problem-solving journey across data structures, alg
 ## Stats Summary
 
 <!-- STATS:START -->
-- **Total Problems Solved**: 373
-- **Languages Used**: python (109), js_ts (3), cpp (247), mysql (14)
+- **Total Problems Solved**: 374
+- **Languages Used**: python (110), mysql (14), cpp (247), js_ts (3)
 - **Leetcode Breakdown**:
   - Easy: 240
-  - Medium: 94
+  - Medium: 95
   - Hard: 17
 
 <!-- STATS:END -->
