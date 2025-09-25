@@ -2,12 +2,12 @@
   "platforms": {
     "leetcode/python": {
       "01_easy": 41,
-      "02_medium": 47,
+      "02_medium": 48,
       "03_hard": 11
     },
-    "leetcode/js_ts": {
-      "01_easy": 3,
-      "02_medium": 0,
+    "leetcode/mysql": {
+      "01_easy": 13,
+      "02_medium": 1,
       "03_hard": 0
     },
     "leetcode/cpp": {
@@ -15,28 +15,28 @@
       "02_medium": 47,
       "03_hard": 6
     },
-    "leetcode/mysql": {
-      "01_easy": 13,
-      "02_medium": 1,
+    "leetcode/js_ts": {
+      "01_easy": 3,
+      "02_medium": 0,
       "03_hard": 0
     },
-    "hacker_rank/python": 5,
-    "hacker_rank/problem_solving": 17
+    "hacker_rank/problem_solving": 17,
+    "hacker_rank/python": 5
   },
-  "total": 374,
+  "total": 375,
   "by_language": {
-    "python": 110,
-    "js_ts": 3,
+    "python": 111,
+    "mysql": 14,
     "cpp": 247,
-    "mysql": 14
+    "js_ts": 3
   },
   "leetcode_only": {
     "01_easy": 240,
-    "02_medium": 95,
+    "02_medium": 96,
     "03_hard": 17
   },
   "hacker_rank_only": {
-    "python": 5,
-    "problem_solving": 17
+    "problem_solving": 17,
+    "python": 5
   }
 }
