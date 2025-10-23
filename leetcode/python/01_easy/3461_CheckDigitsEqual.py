@@ -1,12 +1,13 @@
 class Solution:
     def hasSameDigits(self, s: str) -> bool:
-        while len(s) != 2:
-            n = len(s)
-            temp = ['a'] * (n-1)
-            
-            for i in range(1, n):
-                temp[i-1] = str((int(s[i]) + int(s[i-1]))%10)
+        s = [int(digit) for digit in s]
+        n = len(s)
 
-            s = "".join(temp)
+        binomialCoeffs = [1] * (n-1)
+        for i in range(1, n-1):
+            binomialCoeffs[i] = binomialCoeffs[i-1] * (n-2-i+1) // i
 
-        return s[0] == s[1]
+        leftDigit = sum([digit * coeff for digit, coeff in zip(s[:-1], binomialCoeffs)]) % 10
+        rightDigit = sum([digit * coeff for digit, coeff in zip(s[1:], binomialCoeffs)]) % 10
+
+        return leftDigit == rightDigit
