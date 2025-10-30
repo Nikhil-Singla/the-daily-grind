@@ -3,7 +3,7 @@
     "leetcode/python": {
       "01_easy": 50,
       "02_medium": 54,
-      "03_hard": 11
+      "03_hard": 12
     },
     "leetcode/mysql": {
       "01_easy": 13,
@@ -23,9 +23,9 @@
     "hacker_rank/problem_solving": 17,
     "hacker_rank/python": 7
   },
-  "total": 392,
+  "total": 393,
   "by_language": {
-    "python": 128,
+    "python": 129,
     "mysql": 14,
     "cpp": 247,
     "js_ts": 3
@@ -33,7 +33,7 @@
   "leetcode_only": {
     "01_easy": 249,
     "02_medium": 102,
-    "03_hard": 17
+    "03_hard": 18
   },
   "hacker_rank_only": {
     "problem_solving": 17,
