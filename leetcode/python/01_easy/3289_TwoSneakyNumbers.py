@@ -1,14 +1,25 @@
 class Solution:
     def getSneakyNumbers(self, nums: List[int]) -> List[int]:
-        seen = [0] * len(nums)
+        seen = set()
         ans = []
         for i in nums:
-            if seen[i]:
+            if i in seen:
                 ans.append(i)
-            
-            seen[i] = 1
+            seen.add(i)
 
         return ans
+
+# class Solution:
+#    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+#        seen = [0] * len(nums)
+#        ans = []
+#        for i in nums:
+#            if seen[i]:
+#                ans.append(i)
+#            
+#            seen[i] = 1
+#
+#        return ans
 
 # Bits solution
 # class Solution:
