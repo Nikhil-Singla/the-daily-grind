@@ -4,8 +4,11 @@ class Solution:
         time = 0
         for i in n:
             if colors[i] == colors[i-1]:
-                time += min(neededTime[i], neededTime[i-1])
-                max_time = max(neededTime[i], neededTime[i-1])
-                neededTime[i], neededTime[i-1] = max_time, max_time
+                if neededTime[i] < neededTime[i - 1]:
+                    time += neededTime[i]
+                    neededTime[i] = neededTime[i - 1]
+                else:
+                    time += neededTime[i - 1]
+                    neededTime[i - 1] = neededTime[i]
 
         return time
