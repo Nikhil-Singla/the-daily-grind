@@ -6,10 +6,8 @@ class Solution:
 
         retVal = float('inf')
 
-        while((k+count) <= n):
-            window = nums[count:k+count]
-
-            diff = window[-1] - window[0]
+        while((k+count-1) < n):
+            diff = nums[k+count-1] - nums[count]
             retVal = min(retVal, diff)
             count +=1
             
