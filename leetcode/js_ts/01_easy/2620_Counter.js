@@ -4,11 +4,9 @@
  */
 var createCounter = function(n) 
 {
-    let adder = -1;
     return function() 
     {
-        adder+=1;
-        return n+adder;    
+        return adder++;
     };
 };
 
@@ -17,4 +15,5 @@ var createCounter = function(n)
  * counter() // 10
  * counter() // 11
  * counter() // 12
+
  */
