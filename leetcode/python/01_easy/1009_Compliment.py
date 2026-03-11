@@ -1,8 +1,11 @@
 class Solution:
     def bitwiseComplement(self, n: int) -> int:
-        ret = [int(i) for i in bin(n)[2:]]
-        for i in range(len(ret)):
-            ret[i] ^= 1
-        ret = [str(i) for i in ret]
+        if n == 0:
+            return 1
 
-        return int("".join(ret), 2)
+        mask = 0
+
+        while mask < n:
+            mask = (mask<<1) | 1
+
+        return mask^n
