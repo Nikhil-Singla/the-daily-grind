@@ -21,11 +21,11 @@
       "03_hard": 0
     },
     "hacker_rank/problem_solving": 17,
-    "hacker_rank/python": 10
+    "hacker_rank/python": 11
   },
-  "total": 464,
+  "total": 465,
   "by_language": {
-    "python": 199,
+    "python": 200,
     "cpp": 247,
     "mysql": 15,
     "js_ts": 3
@@ -37,6 +37,6 @@
   },
   "hacker_rank_only": {
     "problem_solving": 17,
-    "python": 10
+    "python": 11
   }
 }
