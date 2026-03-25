@@ -10,7 +10,9 @@ class Solution:
                 count += i
                 if count == summation:
                     return True
-            
+                elif count > summation:
+                    return False
+
             return False
         
         
