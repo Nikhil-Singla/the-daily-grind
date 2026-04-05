@@ -1,5 +1,11 @@
 class Solution:
     def judgeCircle(self, moves: str) -> bool:
+        return moves.count('U')==moves.count('D') and moves.count('L')==moves.count('R')
+
+
+'''
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
         horizon = 0
         vert = 0
 
@@ -15,3 +21,4 @@ class Solution:
                     vert -=1 
         
         return horizon == vert == 0
+'''
