@@ -1,7 +1,13 @@
 class Solution:
     def furthestDistanceFromOrigin(self, moves: str) -> int:
-        count = Counter(moves)
-        selected = max(count['L'], count['R'])
-        not_selected = min(count['L'], count['R'])
+        final = 0
+        count = 0
+        for i in moves:
+            if i == "L":
+                final -= 1
+            elif i == "R":
+                final += 1
+            elif i == "_":
+                count += 1
         
-        return (selected + count['_'] - not_selected)
+        return abs(final) + count
